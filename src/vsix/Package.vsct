@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <Extern href="stdidcmd.h"/>
+  <Extern href="vsshlids.h"/>
+  <Include href="KnownImageIds.vsct" />
+
+  <Commands package="Package">
+    <Groups>
+      <Group guid="PackageCommandSet" id="PackageGroup" priority="0xFF00">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_TOOLS_OPTIONS"/>
+      </Group>
+    </Groups>
+
+    <Buttons>
+      <Button guid="PackageCommandSet" id="DeveloperNewsCommand" priority="0x0100" type="Button">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_VIEW_BROWSER"/>
+        <Icon guid="ImageCatalogGuid" id="DataField" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Developer News</ButtonText>
+        </Strings>
+      </Button>
+
+      <Button guid="PackageCommandSet" id="PackageOptionsCommand" type="Button" priority="0x0002">
+        <Parent guid="PackageCommandSet" id="PackageGroup" />
+        <Icon guid="ImageCatalogGuid" id="Keyboard" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <CommandName>DeveloperNewsOptions</CommandName>
+          <ButtonText>Developer News Options</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+
+  <Symbols>
+    <GuidSymbol name="Package" value="{0298784e-e549-4e67-b3f3-af01a28a9f88}" />
+    <GuidSymbol name="PackageCommandSet" value="{2275760e-e992-461e-ae66-2e42f176d277}">
+
+      <IDSymbol name="PackageGroup" value="0xB000" />
+
+      <IDSymbol name="DeveloperNewsCommand" value="0x0210" />
+      <IDSymbol name="PackageOptionsCommand" value="0x0215" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>
