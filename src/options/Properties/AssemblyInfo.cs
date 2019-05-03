@@ -1,8 +1,8 @@
-﻿using System.Reflection;
+﻿using DeveloperNews;
+using System.Reflection;
 using System.Runtime.InteropServices;
-using DeveloperNews;
 
-[assembly: AssemblyTitle(Vsix.Name)]
+[assembly: AssemblyTitle(Vsix.Name + ".Options")]
 [assembly: AssemblyDescription(Vsix.Description)]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany(Vsix.Author)]
