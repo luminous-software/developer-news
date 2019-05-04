@@ -33,7 +33,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
     <PackageReference Include="Luminous.Code.VisualStudio">
       <Version>1.2.0.2</Version>
     </PackageReference>
@@ -53,7 +52,7 @@
   <ItemGroup>
     <ProjectReference Include="..\core\DeveloperNews.Core.csproj">
       <Project>{37c10221-0383-41e0-8c01-f06ca16b9d82}</Project>
-      <Name>ExtensibilitySolutionTemplate.Core</Name>
+      <Name>DeveloperNews.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
