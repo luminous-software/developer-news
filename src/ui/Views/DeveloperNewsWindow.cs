@@ -11,9 +11,8 @@ namespace DeveloperNews.UI.Views
     {
         public DeveloperNewsWindow() : base(null)
         {
-            this.Caption = "Developer News";
-
-            this.Content = new DeveloperNewsControl();
+            Caption = "Developer News";
+            Content = new DeveloperNewsControl();
         }
     }
 }

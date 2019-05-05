@@ -12,7 +12,7 @@ namespace DeveloperNews.UI.Services
 
     public class RssFeedService : IRssFeedService
     {
-        public async Task<List<FeedItem>> GetFeedItemsAsync(string url)
+        public async Task<List<StartPageFeedItem>> GetStartPageFeedItemsAsync(string url, int count)
         {
             var client = new HttpClient();
             var result = await client.GetStringAsync(url);
@@ -21,7 +21,7 @@ namespace DeveloperNews.UI.Services
             return
             (
                 from item in xdoc.Descendants("item")
-                select new FeedItem
+                select new StartPageFeedItem
                 {
                     Title = (string)item.Element("title"),
                     Description = (string)item.Element("description"),

@@ -7,6 +7,6 @@ namespace DeveloperNews.Core.Interfaces
 
     public interface IRssFeedService
     {
-        Task<List<FeedItem>> GetFeedItemsAsync(string url);
+        Task<List<StartPageFeedItem>> GetStartPageFeedItemsAsync(string url, int count);
     }
 }

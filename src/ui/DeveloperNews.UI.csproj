@@ -44,6 +44,9 @@
     <Compile Include="Constants\Guids.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\RssFeedService.cs" />
+    <Compile Include="ViewModels\FeedItemViewModel.cs" />
+    <Compile Include="ViewModels\StartPageFeedItemViewModel.cs" />
+    <Compile Include="ViewModels\StartPageFeedViewModel.cs" />
     <Compile Include="Views\DeveloperNewsWindow.cs" />
     <Compile Include="Views\DeveloperNewsControl.xaml.cs">
       <DependentUpon>DeveloperNewsControl.xaml</DependentUpon>

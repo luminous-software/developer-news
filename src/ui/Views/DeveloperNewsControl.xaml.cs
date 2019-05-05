@@ -1,11 +1,15 @@
-﻿namespace DeveloperNews.UI.Views
-{
-    using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
+namespace DeveloperNews.UI.Views
+{
     public partial class DeveloperNewsControl : UserControl
     {
         public DeveloperNewsControl()
-            => InitializeComponent();
+        {
+            InitializeComponent();
+
+            //DataContext = new StartPageFeedViewModel();
+        }
 
         //private void btnGo_Click(object sender, RoutedEventArgs e)
         //{
