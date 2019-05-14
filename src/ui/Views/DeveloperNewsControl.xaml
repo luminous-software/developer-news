@@ -9,27 +9,84 @@
     Name="DeveloperNewsToolWindow"
     d:DesignHeight="300"
     d:DesignWidth="300"
-    Background="{DynamicResource {x:Static vsshell:VsBrushes.WindowKey}}"
-    Foreground="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}"
-    mc:Ignorable="d">
+    Background="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}"
+    Foreground="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}"
+    mc:Ignorable="d"
+    >
 
     <UserControl.Resources>
-        <viewmodels:StartPageFeedViewModel x:Key="StartPageFeedViewModel" />
+        <viewmodels:ViewModelLocator x:Key="ViewModelLocator" />
+
+
+        <Style TargetType="StackPanel">
+            <Setter Property="Margin" Value="5px,10px" />
+        </Style>
+
+        <Style x:Key="TitleStyle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe WP Semilight" />
+            <Setter Property="Foreground" Value="Blue" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="TextWrapping" Value="WrapWithOverflow" />
+        </Style>
+
+        <Style x:Key="DescriptionStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="FontFamily" Value="Segoe WP Semilight" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}" />
+            <Setter Property="TextWrapping" Value="WrapWithOverflow" />
+        </Style>
+
+        <Style x:Key="NewStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="9" />
+            <Setter Property="FontFamily" Value="Segoe WP Semilight" />
+            <Setter Property="Foreground" Value="Orange" />
+        </Style>
+
+        <Style x:Key="DateStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="9" />
+            <Setter Property="FontFamily" Value="Segoe WP Semilight" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}" />
+        </Style>
     </UserControl.Resources>
 
-    <Grid>
-        <TabControl DataContext="{Binding StartPageFeedViewModel}">
-            <TabItem Header="Start Page">
-                <ListView ItemsSource="{Binding Path=FeedItems}">
+    <DockPanel>
+        <ToolBarTray DockPanel.Dock="Top" />
+        <TabControl x:Name="LayoutRoot" DockPanel.Dock="Bottom" Margin="10">
+            <TabItem x:Name="StartPageTab" Header="{Binding TabName}">
+                <ListView x:Name="StartPageList" ItemsSource="{Binding FeedItems}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <TextBlock Text="{Binding Path=Title}" />
+                                <TextBlock
+                                    x:Name="Title"
+                                    Style="{StaticResource TitleStyle}"
+                                    Text="{Binding Title}"
+                                    />
+
+                                <TextBlock
+                                    x:Name="Description"
+                                    Style="{StaticResource DescriptionStyle}"
+                                    Text="{Binding Description}"
+                                    />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                    x:Name="New"
+                                    Style="{StaticResource NewStyle}"
+                                    Text="{Binding New}"
+                                    />
+
+                                    <TextBlock
+                                    x:Name="Date"
+                                    Style="{StaticResource DateStyle}"
+                                    Text="{Binding PublishDate}"
+                                    />
+                                </StackPanel>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </TabItem>
         </TabControl>
-    </Grid>
+    </DockPanel>
 </UserControl>

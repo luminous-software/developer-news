@@ -29,13 +29,13 @@ namespace DeveloperNews
     public sealed class PackageClass : AsyncPackageBase
     {
         public PackageClass() : base(PackageCommandSet, Name, Description)
-        { }
+        {
+        }
 
         protected override async Tasks.Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
             await base.InitializeAsync(cancellationToken, progress);
             await DeveloperNewsCommand.InstantiateAsync(this);
-            //await TestToolWindowCommand.InitializeAsync(this);
 
             //await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
         }
@@ -48,7 +48,7 @@ namespace DeveloperNews
             {
                 Instance.JoinableTaskFactory.RunAsync(async delegate
                 {
-                    ToolWindowPane window = await Instance.ShowToolWindowAsync(typeof(T), 0, true, cancellationToken);
+                    var window = await Instance.ShowToolWindowAsync(typeof(T), 0, true, cancellationToken);
                     if ((null == window) || (null == window.Frame))
                     {
                         throw new NotSupportedException("Cannot create tool window");
@@ -56,7 +56,7 @@ namespace DeveloperNews
 
                     await Instance.JoinableTaskFactory.SwitchToMainThreadAsync();
 
-                    IVsWindowFrame windowFrame = (IVsWindowFrame)window.Frame;
+                    var windowFrame = (IVsWindowFrame)window.Frame;
                     ErrorHandler.ThrowOnFailure(windowFrame.Show());
                 });
 
@@ -74,7 +74,7 @@ namespace DeveloperNews
             {
                 Instance.JoinableTaskFactory.RunAsync(async delegate
                 {
-                    ToolWindowPane window = await Instance.ShowToolWindowAsync(type, 0, true, Instance.DisposalToken);
+                    var window = await Instance.ShowToolWindowAsync(type, 0, true, Instance.DisposalToken);
                     if ((null == window) || (null == window.Frame))
                     {
                         throw new NotSupportedException("Cannot create tool window");
@@ -82,7 +82,7 @@ namespace DeveloperNews
 
                     await Instance.JoinableTaskFactory.SwitchToMainThreadAsync();
 
-                    IVsWindowFrame windowFrame = (IVsWindowFrame)window.Frame;
+                    var windowFrame = (IVsWindowFrame)window.Frame;
                     ErrorHandler.ThrowOnFailure(windowFrame.Show());
                 });
 

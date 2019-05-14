@@ -1,8 +1,9 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight;
+using System;
 
 namespace DeveloperNews.UI.ViewModels
 {
-    internal class FeedItemViewModel
+    public abstract class FeedItemViewModel : ViewModelBase
     {
         public string Title { get; set; }
 

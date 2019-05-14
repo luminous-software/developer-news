@@ -5,8 +5,8 @@ namespace DeveloperNews.Core.Interfaces
 {
     using Models;
 
-    public interface IRssFeedService
+    public interface IDataService
     {
-        Task<List<StartPageFeedItem>> GetStartPageFeedItemsAsync(string url, int count);
+        Task<List<FeedItem>> GetItemsAsync(string url, int count);
     }
 }

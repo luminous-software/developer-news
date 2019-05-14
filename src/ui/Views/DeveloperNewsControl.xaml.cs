@@ -1,23 +1,40 @@
-﻿using System.Windows.Controls;
+﻿using Microsoft.VisualStudio.Shell;
+using System.Windows.Controls;
 
 namespace DeveloperNews.UI.Views
 {
+    using GalaSoft.MvvmLight.Ioc;
+    using System;
+    using ViewModels;
+
     public partial class DeveloperNewsControl : UserControl
     {
+        public DeveloperNewsControlViewModel DeveloperNewsControlViewModel { get; }
+
+        public StartPageTabViewModel StartPageTabViewModel { get; set; }
+
         public DeveloperNewsControl()
         {
             InitializeComponent();
+            ViewModelLocator.Initialise();
 
-            //DataContext = new StartPageFeedViewModel();
+            var container = SimpleIoc.Default;
+
+            DeveloperNewsControlViewModel = container.GetInstance<DeveloperNewsControlViewModel>();
+            DataContext = DeveloperNewsControlViewModel;
+
+            StartPageTabViewModel = container.GetInstance<StartPageTabViewModel>();
+            StartPageTab.DataContext = StartPageTabViewModel;
+
+            ThreadHelper.JoinableTaskFactory.Run(async delegate
+            {
+                await StartPageTabViewModel.LoadItemsAsync();
+            });
         }
 
-        //private void btnGo_Click(object sender, RoutedEventArgs e)
-        //{
-        //    using (XmlReader reader = XmlReader.Create(txtUrl.Text))
-        //    {
-        //        SyndicationFeed feed = SyndicationFeed.Load(reader);
-        //        lstFeedItems.ItemsSource = feed.Items;
-        //    }
-        //}
+        protected override void OnInitialized(EventArgs e)
+        {
+            base.OnInitialized(e);
+        }
     }
 }

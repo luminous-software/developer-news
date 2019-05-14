@@ -40,7 +40,7 @@
       <Link>source.extension.cs</Link>
     </Compile>
     <Compile Include="Constants\StringConstants.cs" />
-    <Compile Include="Interfaces\IRssFeedService.cs" />
+    <Compile Include="Interfaces\IDataService.cs" />
     <Compile Include="Models\FeedItem.cs" />
     <Compile Include="Models\StartPageFeedItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
