@@ -13,11 +13,15 @@ namespace DeveloperNews.UI.ViewModels
     {
         private readonly IDataService dataService;
 
-        public string TabName
+        public string DisplayName
             => "Start Page Feed";
 
-        public string StartPageFeedUrl
-            => "https://devblogs.microsoft.com/visualstudio/feed/";  //TODO: move to options
+        public string NewName
+            => "NEW ";
+
+        public string Url { get; set; }
+
+        public int Count { get; set; }
 
         public List<StartPageListItemViewModel> FeedItems { get; set; }
 
@@ -37,7 +41,7 @@ namespace DeveloperNews.UI.ViewModels
 
         public async Task LoadItemsAsync()
         {
-            var items = await dataService.GetItemsAsync(StartPageFeedUrl, 100);
+            var items = await dataService.GetItemsAsync(Url, Count);
 
             FeedItems =
             (
@@ -47,7 +51,7 @@ namespace DeveloperNews.UI.ViewModels
                     Title = item.Title,
                     Description = item.Description,
                     Link = item.Link,
-                    New = "NEW ",
+                    New = NewName,
                     PublishDate = item.PublishDate
                 }
             ).ToList();

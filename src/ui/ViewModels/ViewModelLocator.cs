@@ -8,7 +8,7 @@ namespace DeveloperNews.UI.ViewModels
 {
     public class ViewModelLocator
     {
-        public static void Initialise()
+        public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 

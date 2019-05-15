@@ -21,6 +21,7 @@ namespace DeveloperNews.Commands
                 .ShowProblem();
 
         private CommandResult ExecuteCommand()
-            => PackageClass.ShowToolWindow<DeveloperNewsWindow>(Package.DisposalToken);
+        //=> PackageClass.ShowToolWindow<DatabaseManagerWindow>(Package.DisposalToken);
+        => PackageClass.ShowToolWindow<DeveloperNewsWindow>(Package.DisposalToken);
     }
 }

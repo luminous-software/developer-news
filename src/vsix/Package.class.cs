@@ -3,7 +3,7 @@ using Luminous.Code.VisualStudio.Commands; //TODO: remove
 using Luminous.Code.VisualStudio.Packages;
 using Microsoft.VisualStudio; //TODO: remove
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop; //TODO: remove
+using Microsoft.VisualStudio.Shell.Interop; //TODO: remove Microsoft.VisualStudio.Shell.Interop
 using System;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -13,6 +13,7 @@ namespace DeveloperNews
 {
     using Commands;
     using Options.Pages;
+    using UI.ViewModels;
     using UI.Views;
     using static Core.Constants.StringConstants;
     using static PackageGuids;
@@ -30,6 +31,7 @@ namespace DeveloperNews
     {
         public PackageClass() : base(PackageCommandSet, Name, Description)
         {
+            _ = new ViewModelLocator();
         }
 
         protected override async Tasks.Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
@@ -40,7 +42,7 @@ namespace DeveloperNews
             //await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
         }
 
-        //TODO: remove
+        //TODO: remove ShowToolWindow<T>(CancellationToken cancellationToken, string problem = null)
         public static CommandResult ShowToolWindow<T>(CancellationToken cancellationToken, string problem = null)
             where T : ToolWindowPane
         {
@@ -68,6 +70,7 @@ namespace DeveloperNews
             }
         }
 
+        //TODO: remove ShowToolWindow<T>(Type type, string problem = null)
         public static CommandResult ShowToolWindow(Type type, string problem = null)
         {
             try

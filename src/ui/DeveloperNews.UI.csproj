@@ -34,8 +34,13 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +56,10 @@
     <Compile Include="ViewModels\StartPageListItemViewModel.cs" />
     <Compile Include="ViewModels\StartPageTabViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
+    <Compile Include="Views\DatabaseManagerControl.xaml.cs">
+      <DependentUpon>DatabaseManagerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DatabaseManagerWindow.cs" />
     <Compile Include="Views\DeveloperNewsWindow.cs" />
     <Compile Include="Views\DeveloperNewsControl.xaml.cs">
       <DependentUpon>DeveloperNewsControl.xaml</DependentUpon>
@@ -65,6 +74,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\DatabaseManagerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DeveloperNewsControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

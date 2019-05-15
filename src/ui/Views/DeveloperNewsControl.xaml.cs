@@ -16,7 +16,6 @@ namespace DeveloperNews.UI.Views
         public DeveloperNewsControl()
         {
             InitializeComponent();
-            ViewModelLocator.Initialise();
 
             var container = SimpleIoc.Default;
 
@@ -25,6 +24,8 @@ namespace DeveloperNews.UI.Views
 
             StartPageTabViewModel = container.GetInstance<StartPageTabViewModel>();
             StartPageTab.DataContext = StartPageTabViewModel;
+            StartPageTabViewModel.Url = "https://devblogs.microsoft.com/visualstudio/feed/";  //TODO: move StartPageTabViewModel.Url to options
+            StartPageTabViewModel.Count = 11;  //TODO: move StartPageTabViewModel.Count to options
 
             ThreadHelper.JoinableTaskFactory.Run(async delegate
             {
