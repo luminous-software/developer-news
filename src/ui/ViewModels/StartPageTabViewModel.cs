@@ -1,13 +1,11 @@
-﻿using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GalaSoft.MvvmLight;
 
 namespace DeveloperNews.UI.ViewModels
 {
     using Core.Interfaces;
-    //using Commands;
 
     public class StartPageTabViewModel : ViewModelBase
     {
@@ -25,19 +23,12 @@ namespace DeveloperNews.UI.ViewModels
 
         public List<StartPageListItemViewModel> FeedItems { get; set; }
 
-        public RelayCommand<string> ClickCommand { get; private set; }
 
         public StartPageTabViewModel(IDataService dataService)
         {
             this.dataService = dataService;
-            //ClickCommand = new ClickCommand((link) => MessageBox.Show(link), CanExecute());
+            //RefreshCommand = new RefreshCommand((link) => MessageBox.Show(link), () => true);
         }
-
-        //private void Execute(string link)
-        //    => MessageBox.Show(link);
-
-        //private bool CanExecute()
-        //    => true;
 
         public async Task LoadItemsAsync()
         {

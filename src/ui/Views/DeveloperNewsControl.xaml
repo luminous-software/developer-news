@@ -56,10 +56,11 @@
 
         <Style x:Key="TitleStyle" TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Segoe WP Semilight" />
-            <Setter Property="Foreground" Value="Blue" />
+            <Setter Property="Foreground" Value="#7AC0FF" />
             <Setter Property="FontSize" Value="12" />
             <Setter Property="TextWrapping" Value="WrapWithOverflow" />
             <Setter Property="Margin" Value="0,0,0,2px" />
+            <Setter Property="FontWeight" Value="Bold" />
         </Style>
 
         <Style x:Key="DescriptionStyle" TargetType="TextBlock">
@@ -91,7 +92,7 @@
     <StackPanel Orientation="Vertical">
         <ToolBar>
             <Button
-                Name="refreshButton"
+                Name="RefreshButton"
                 Background="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}"
                 Foreground="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}"
                 ToolTip="Reloads all data"

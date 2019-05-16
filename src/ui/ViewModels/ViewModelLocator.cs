@@ -1,11 +1,13 @@
 ﻿using CommonServiceLocator;
-using DeveloperNews.Core.Interfaces;
-using DeveloperNews.UI.Services;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 
 namespace DeveloperNews.UI.ViewModels
 {
+    using Core.Interfaces;
+    using Design;
+    using Services;
+
     public class ViewModelLocator
     {
         public ViewModelLocator()
@@ -16,7 +18,7 @@ namespace DeveloperNews.UI.ViewModels
 
             if (ViewModelBase.IsInDesignModeStatic)
             {
-                //ioc.Register<IDataService, Design.RssDataService>();
+                ioc.Register<IDataService, DesignDataService>();
             }
             else
             {
