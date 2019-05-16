@@ -22,7 +22,7 @@
         </Style>
 
         <Style TargetType="Button">
-            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Background" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}" />
             <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}" />
         </Style>
 
@@ -30,17 +30,15 @@
             <Setter Property="Background" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}" />
         </Style>
 
-        <Style TargetType="ListBox">
+        <Style TargetType="ListView">
             <Setter Property="Background" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}" />
             <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}" />
-            <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Margin" Value="5px,0" />
-            <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ScrollContentPresenter}, Path=ActualWidth}" />
-
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         </Style>
 
-        <Style x:Key="ItemStyle" TargetType="Button">
+        <Style x:Key="ItemStyle" TargetType="DockPanel">
             <Setter Property="Margin" Value="5px" />
         </Style>
 
@@ -79,7 +77,7 @@
         </Style>
     </UserControl.Resources>
 
-    <DockPanel LastChildFill="True">
+    <DockPanel x:Name="LayoutRoot" LastChildFill="True">
         <ToolBar DockPanel.Dock="Top">
             <Button
                 Name="RefreshButton"
@@ -97,60 +95,44 @@
             IsIndeterminate="True"
             Visibility="Collapsed"
             />
-        <ScrollViewer DockPanel.Dock="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-            <ListBox x:Name="StartPageFeedItems" ItemsSource="{Binding FeedItems}">
-                <ItemsControl.ItemContainerStyle>
-                    <Style>
-                        <Setter Property="Control.MaxWidth" Value="{Binding RelativeSource={x:Static RelativeSource.TemplatedParent}, Path=MaxWidth}" />
+        <ListView x:Name="StartPageFeedItems" ItemsSource="{Binding FeedItems}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel Style="{StaticResource ItemStyle}">
+                        <TextBlock
+                            x:Name="Title"
+                            DockPanel.Dock="Top"
+                            Style="{StaticResource TitleStyle}"
+                            Text="{Binding Title}"
+                            />
 
-                        <Style.Triggers>
-                            <Trigger Property="Control.IsMouseOver" Value="True">
-                                <Setter Property="Control.ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=Content.Description}" />
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </ItemsControl.ItemContainerStyle>
+                        <TextBlock
+                            x:Name="Description"
+                            DockPanel.Dock="Top"
+                            Style="{StaticResource DescriptionStyle}"
+                            Text="{Binding Description}"
+                            />
 
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Button Style="{StaticResource ItemStyle}">
-                            <DockPanel LastChildFill="False">
-                                <TextBlock
-                                    x:Name="Title"
-                                    DockPanel.Dock="Top"
-                                    Style="{StaticResource TitleStyle}"
-                                    Text="{Binding Title}"
-                                    />
+                        <StackPanel
+                            x:Name="DatePanelStyle"
+                            DockPanel.Dock="Top"
+                            Style="{StaticResource DatePanelStyle}"
+                            >
+                            <TextBlock
+                                x:Name="New"
+                                Style="{StaticResource NewStyle}"
+                                Text="{Binding New}"
+                                />
 
-                                <TextBlock
-                                    x:Name="Description"
-                                    DockPanel.Dock="Top"
-                                    Style="{StaticResource DescriptionStyle}"
-                                    Text="{Binding Description}"
-                                    />
-
-                                <StackPanel
-                                    x:Name="DatePanel"
-                                    DockPanel.Dock="Top"
-                                    Style="{StaticResource DatePanelStyle}"
-                                    >
-                                    <TextBlock
-                                        x:Name="New"
-                                        Style="{StaticResource NewStyle}"
-                                        Text="{Binding New}"
-                                        />
-
-                                    <TextBlock
-                                        x:Name="Date"
-                                        Style="{StaticResource DateStyle}"
-                                        Text="{Binding PublishDate}"
-                                        />
-                                </StackPanel>
-                            </DockPanel>
-                        </Button>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </ScrollViewer>
+                            <TextBlock
+                                x:Name="Date"
+                                Style="{StaticResource DateStyle}"
+                                Text="{Binding PublishDate}"
+                                />
+                        </StackPanel>
+                    </DockPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </DockPanel>
 </UserControl>
