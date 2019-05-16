@@ -1,6 +1,6 @@
 ﻿namespace DeveloperNews.UI.ViewModels
 {
-    public class StartPageListItemViewModel : FeedItemViewModel
+    public class StartPageItemViewModel : FeedItemViewModel
     {
         public string New { get; set; }
     }

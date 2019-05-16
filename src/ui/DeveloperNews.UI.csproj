@@ -53,8 +53,8 @@
     <Compile Include="Services\RssDataService.cs" />
     <Compile Include="ViewModels\DeveloperNewsControlViewModel.cs" />
     <Compile Include="ViewModels\FeedItemViewModel.cs" />
-    <Compile Include="ViewModels\StartPageListItemViewModel.cs" />
-    <Compile Include="ViewModels\StartPageTabViewModel.cs" />
+    <Compile Include="ViewModels\StartPageItemViewModel.cs" />
+    <Compile Include="ViewModels\StartPageViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\DeveloperNewsWindow.cs" />
     <Compile Include="Views\DeveloperNewsControl.xaml.cs">

@@ -1,17 +1,17 @@
-﻿using Microsoft.VisualStudio.Shell;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
+using Microsoft.VisualStudio.Shell;
 
 namespace DeveloperNews.UI.Views
 {
-    using GalaSoft.MvvmLight.Ioc;
     using System;
+    using GalaSoft.MvvmLight.Ioc;
     using ViewModels;
 
     public partial class DeveloperNewsControl : UserControl
     {
         public DeveloperNewsControlViewModel DeveloperNewsControlViewModel { get; }
 
-        public StartPageTabViewModel StartPageTabViewModel { get; set; }
+        public StartPageViewModel StartPageViewModel { get; set; }
 
         public DeveloperNewsControl()
         {
@@ -22,14 +22,14 @@ namespace DeveloperNews.UI.Views
             DeveloperNewsControlViewModel = container.GetInstance<DeveloperNewsControlViewModel>();
             DataContext = DeveloperNewsControlViewModel;
 
-            StartPageTabViewModel = container.GetInstance<StartPageTabViewModel>();
-            StartPageTab.DataContext = StartPageTabViewModel;
-            StartPageTabViewModel.Url = "https://devblogs.microsoft.com/visualstudio/feed/";  //TODO: move StartPageTabViewModel.Url to options
-            StartPageTabViewModel.Count = 11;  //TODO: move StartPageTabViewModel.Count to options
+            StartPageViewModel = container.GetInstance<StartPageViewModel>();
+            StartPageFeedItems.DataContext = StartPageViewModel;
+            StartPageViewModel.Url = "https://devblogs.microsoft.com/visualstudio/feed/";  //TODO: move StartPageTabViewModel.Url to options
+            StartPageViewModel.Count = 11;  //TODO: move StartPageTabViewModel.Count to options
 
             ThreadHelper.JoinableTaskFactory.Run(async delegate
             {
-                await StartPageTabViewModel.LoadItemsAsync();
+                await StartPageViewModel.LoadItemsAsync();
             });
         }
 

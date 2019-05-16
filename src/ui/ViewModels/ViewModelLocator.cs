@@ -12,9 +12,9 @@ namespace DeveloperNews.UI.ViewModels
     {
         public ViewModelLocator()
         {
-            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-
             var ioc = SimpleIoc.Default;
+
+            ServiceLocator.SetLocatorProvider(() => ioc);
 
             if (ViewModelBase.IsInDesignModeStatic)
             {
@@ -26,7 +26,7 @@ namespace DeveloperNews.UI.ViewModels
             }
 
             ioc.Register<DeveloperNewsControlViewModel>();
-            ioc.Register<StartPageTabViewModel>();
+            ioc.Register<StartPageViewModel>();
         }
     }
 }

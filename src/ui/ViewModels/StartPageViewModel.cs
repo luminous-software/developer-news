@@ -7,12 +7,12 @@ namespace DeveloperNews.UI.ViewModels
 {
     using Core.Interfaces;
 
-    public class StartPageTabViewModel : ViewModelBase
+    public class StartPageViewModel : ViewModelBase
     {
         private readonly IDataService dataService;
 
         public string DisplayName
-            => "Start Page Feed";
+            => "Start Page Items";
 
         public string NewName
             => "NEW ";
@@ -21,10 +21,10 @@ namespace DeveloperNews.UI.ViewModels
 
         public int Count { get; set; }
 
-        public List<StartPageListItemViewModel> FeedItems { get; set; }
+        public List<StartPageItemViewModel> FeedItems { get; set; }
 
 
-        public StartPageTabViewModel(IDataService dataService)
+        public StartPageViewModel(IDataService dataService)
         {
             this.dataService = dataService;
             //RefreshCommand = new RefreshCommand((link) => MessageBox.Show(link), () => true);
@@ -37,7 +37,7 @@ namespace DeveloperNews.UI.ViewModels
             FeedItems =
             (
                 from item in items
-                select new StartPageListItemViewModel
+                select new StartPageItemViewModel
                 {
                     Title = item.Title,
                     Description = item.Description,

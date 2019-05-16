@@ -18,39 +18,28 @@
         <viewmodels:ViewModelLocator x:Key="ViewModelLocator" />
 
         <Style TargetType="TextBlock">
-            <Setter Property="TextBlock.Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}" />
             <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}" />
         </Style>
-        <Style TargetType="Label">
-            <Setter Property="Background" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}" />
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}" />
-        </Style>
+
         <Style TargetType="Button">
             <Setter Property="Background" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}" />
             <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}" />
         </Style>
+
         <Style TargetType="ToolBar">
             <Setter Property="Background" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}" />
-        </Style>
-
-        <Style TargetType="TabControl">
-            <Setter Property="Background" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}" />
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}" />
-        </Style>
-
-        <Style TargetType="TabItem">
-            <Setter Property="Background" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}" />
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}" />
         </Style>
 
         <Style TargetType="ListView">
             <Setter Property="Background" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}" />
             <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}" />
-            <Setter Property="Margin" Value="5px,0px" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Margin" Value="5px,0" />
         </Style>
 
-        <Style x:Key="MainStackPanelStyle" TargetType="StackPanel">
-            <Setter Property="Margin" Value="5px,5px" />
+        <Style x:Key="ItemPanelStyle" TargetType="StackPanel">
+            <Setter Property="Margin" Value="5px" />
             <Setter Property="Orientation" Value="Vertical" />
         </Style>
 
@@ -58,7 +47,7 @@
             <Setter Property="FontFamily" Value="Segoe WP Semilight" />
             <Setter Property="Foreground" Value="#7AC0FF" />
             <Setter Property="FontSize" Value="12" />
-            <Setter Property="TextWrapping" Value="WrapWithOverflow" />
+            <Setter Property="TextWrapping" Value="Wrap" />
             <Setter Property="Margin" Value="0,0,0,2px" />
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
@@ -67,11 +56,11 @@
             <Setter Property="FontSize" Value="10" />
             <Setter Property="FontFamily" Value="Segoe WP Semilight" />
             <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}" />
-            <Setter Property="TextWrapping" Value="WrapWithOverflow" />
+            <Setter Property="TextWrapping" Value="Wrap" />
         </Style>
 
-        <Style x:Key="DateStackPanelStyle" TargetType="StackPanel">
-            <Setter Property="Margin" Value="0px" />
+        <Style x:Key="DatePanelStyle" TargetType="StackPanel">
+            <Setter Property="Margin" Value="0,-5,0,0" />
             <Setter Property="Orientation" Value="Horizontal" />
         </Style>
 
@@ -89,8 +78,8 @@
         </Style>
     </UserControl.Resources>
 
-    <StackPanel Orientation="Vertical">
-        <ToolBar>
+    <DockPanel LastChildFill="True">
+        <ToolBar DockPanel.Dock="Top">
             <Button
                 Name="RefreshButton"
                 Background="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}"
@@ -103,51 +92,54 @@
         <ProgressBar
             Name="refreshProgressBar"
             Height="20"
+            DockPanel.Dock="Top"
             IsIndeterminate="True"
             Visibility="Collapsed"
             />
-        <ScrollViewer>
-            <TabControl
-                x:Name="TabControl"
-                Background="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}"
-                Foreground="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}"
-                >
-                <TabItem x:Name="StartPageTab" Header="{Binding DisplayName}">
-                    <ListView x:Name="StartPageList" ItemsSource="{Binding FeedItems}">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Style="{StaticResource MainStackPanelStyle}">
-                                    <TextBlock
-                                        x:Name="Title"
-                                        Style="{StaticResource TitleStyle}"
-                                        Text="{Binding Title}"
-                                        />
+        <ScrollViewer DockPanel.Dock="Top">
+            <ListView x:Name="StartPageFeedItems" ItemsSource="{Binding FeedItems}">
+                <ItemsControl.ItemContainerStyle>
+                    <Style>
+                        <Style.Triggers>
+                            <Trigger Property="Control.IsMouseOver" Value="True">
+                                <Setter Property="Control.ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=Content.Description}" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
 
-                                    <TextBlock
-                                        x:Name="Description"
-                                        Style="{StaticResource DescriptionStyle}"
-                                        Text="{Binding Description}"
-                                        />
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Style="{StaticResource ItemPanelStyle}">
+                            <TextBlock
+                                x:Name="Title"
+                                Style="{StaticResource TitleStyle}"
+                                Text="{Binding Title}"
+                                />
 
-                                    <StackPanel Style="{StaticResource DateStackPanelStyle}">
-                                        <TextBlock
-                                            x:Name="New"
-                                            Style="{StaticResource NewStyle}"
-                                            Text="{Binding New}"
-                                            />
+                            <TextBlock
+                                x:Name="Description"
+                                Style="{StaticResource DescriptionStyle}"
+                                Text="{Binding Description}"
+                                />
 
-                                        <TextBlock
-                                            x:Name="Date"
-                                            Style="{StaticResource DateStyle}"
-                                            Text="{Binding PublishDate}"
-                                            />
-                                    </StackPanel>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </TabItem>
-            </TabControl>
+                            <StackPanel Style="{StaticResource DatePanelStyle}">
+                                <TextBlock
+                                    x:Name="New"
+                                    Style="{StaticResource NewStyle}"
+                                    Text="{Binding New}"
+                                    />
+
+                                <TextBlock
+                                    x:Name="Date"
+                                    Style="{StaticResource DateStyle}"
+                                    Text="{Binding PublishDate}"
+                                    />
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </ScrollViewer>
-    </StackPanel>
+    </DockPanel>
 </UserControl>
