@@ -32,52 +32,75 @@
 
         <Style TargetType="ListView">
             <Setter Property="Background" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}" />
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}" />
             <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}" />
             <Setter Property="Margin" Value="5px,0" />
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         </Style>
 
-        <Style x:Key="ItemStyle" TargetType="DockPanel">
+        <Style
+            x:Key="ItemStyle"
+            TargetType="DockPanel"
+            >
+            <Setter Property="MaxHeight" Value="50" />
             <Setter Property="Margin" Value="5px" />
         </Style>
 
-        <Style x:Key="TitleStyle" TargetType="TextBlock">
+        <Style
+            x:Key="TitleStyle"
+            TargetType="TextBlock"
+            >
             <Setter Property="FontFamily" Value="Segoe WP Semilight" />
             <Setter Property="Foreground" Value="#7AC0FF" />
             <Setter Property="FontSize" Value="12" />
-            <Setter Property="TextWrapping" Value="Wrap" />
-            <Setter Property="Margin" Value="0,0,0,2px" />
             <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="TextWrapping" Value="NoWrap" />
+            <Setter Property="Margin" Value="0,0,0,2px" />
         </Style>
 
-        <Style x:Key="DescriptionStyle" TargetType="TextBlock">
+        <Style
+            x:Key="DescriptionStyle"
+            TargetType="TextBlock"
+            >
             <Setter Property="FontSize" Value="10" />
             <Setter Property="FontFamily" Value="Segoe WP Semilight" />
             <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}" />
-            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="MaxHeight" Value="50" />
+            <Setter Property="TextTrimming" Value="WordEllipsis" />
+            <Setter Property="TextWrapping" Value="NoWrap" />
         </Style>
 
-        <Style x:Key="DatePanelStyle" TargetType="StackPanel">
-            <Setter Property="Margin" Value="0,-5,0,0" />
+        <Style
+            x:Key="DatePanelStyle"
+            TargetType="StackPanel"
+            >
+            <Setter Property="Margin" Value="0,2px,0,0" />
             <Setter Property="Orientation" Value="Horizontal" />
         </Style>
 
-        <Style x:Key="NewStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="9" />
+        <Style
+            x:Key="NewStyle"
+            TargetType="TextBlock"
+            >
             <Setter Property="FontFamily" Value="Segoe WP Semilight" />
+            <Setter Property="FontSize" Value="9" />
             <Setter Property="Foreground" Value="Orange" />
         </Style>
 
-        <Style x:Key="DateStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="9" />
+        <Style
+            x:Key="DateStyle"
+            TargetType="TextBlock"
+            >
             <Setter Property="FontFamily" Value="Segoe WP Semilight" />
+            <Setter Property="FontSize" Value="9" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}" />
         </Style>
     </UserControl.Resources>
 
-    <DockPanel x:Name="LayoutRoot" LastChildFill="True">
+    <DockPanel x:Name="LayoutRoot"
+        LastChildFill="True"
+        >
         <ToolBar DockPanel.Dock="Top">
             <Button
                 Name="RefreshButton"
@@ -95,39 +118,36 @@
             IsIndeterminate="True"
             Visibility="Collapsed"
             />
-        <ListView x:Name="StartPageFeedItems" ItemsSource="{Binding FeedItems}">
+        <ListView x:Name="StartPageFeedItems"
+            ItemsSource="{Binding FeedItems}"
+            >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <DockPanel Style="{StaticResource ItemStyle}">
-                        <TextBlock
-                            x:Name="Title"
+                        <TextBlock x:Name="Title"
                             DockPanel.Dock="Top"
                             Style="{StaticResource TitleStyle}"
                             Text="{Binding Title}"
                             />
 
-                        <TextBlock
-                            x:Name="Description"
+                        <TextBlock x:Name="Description"
                             DockPanel.Dock="Top"
                             Style="{StaticResource DescriptionStyle}"
                             Text="{Binding Description}"
                             />
 
-                        <StackPanel
-                            x:Name="DatePanelStyle"
+                        <StackPanel x:Name="DatePanelStyle"
                             DockPanel.Dock="Top"
                             Style="{StaticResource DatePanelStyle}"
                             >
-                            <TextBlock
-                                x:Name="New"
+                            <TextBlock x:Name="New"
                                 Style="{StaticResource NewStyle}"
                                 Text="{Binding New}"
                                 />
 
-                            <TextBlock
-                                x:Name="Date"
+                            <TextBlock x:Name="Date"
                                 Style="{StaticResource DateStyle}"
-                                Text="{Binding PublishDate}"
+                                Text="{Binding PublishDate, StringFormat='dddd, d MMMM yyyy'}"
                                 />
                         </StackPanel>
                     </DockPanel>

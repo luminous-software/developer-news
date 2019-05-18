@@ -15,6 +15,25 @@ namespace DeveloperNews.UI.Services
     {
         public async Task<List<FeedItem>> GetItemsAsync(string url, int count)
         {
+            //https://wp.qmatteoq.com/?p=6486
+            var client = new HttpClient();
+            var result = await client.GetStringAsync(url);
+            var xdoc = XDocument.Parse(result);
+
+            return
+            (
+                from item in xdoc.Descendants("item").Take(count)
+                select new FeedItem
+                {
+                    Title = (string)item.Element("title"),
+                    //Description = Regex.Replace((string)item.Element("description"), "<.*?>|&.*?;", string.Empty),
+                    //Description = Regex.Match((string)item.Element("description"), "<.*?>|&.*?;").Groups[1].Value,
+                    Description = GetFirstParagraph((string)item.Element("description")),
+                    Link = (string)item.Element("link"),
+                    PublishDate = DateTime.Parse((string)item.Element("pubDate"))
+                }
+            ).ToList();
+
             //https://docs.microsoft.com/en-us/uwp/api/Windows.Web.Syndication.SyndicationClient
 
             //async Task GetFeedAsync(string feedUri)
@@ -37,23 +56,6 @@ namespace DeveloperNews.UI.Services
             //{
             //    // retrieve feed items here
             //}
-
-            //https://wp.qmatteoq.com/?p=6486
-            var client = new HttpClient();
-            var result = await client.GetStringAsync(url);
-            var xdoc = XDocument.Parse(result);
-
-            return
-            (
-                from item in xdoc.Descendants("item").Take(count)
-                select new FeedItem
-                {
-                    Title = (string)item.Element("title"),
-                    Description = Regex.Replace((string)item.Element("description"), "<.*?>|&.*?;", string.Empty),
-                    Link = (string)item.Element("link"),
-                    PublishDate = DateTime.Parse((string)item.Element("pubDate"))
-                }
-            ).ToList();
 
             //Using SyndicationFeed:
 
@@ -96,6 +98,14 @@ namespace DeveloperNews.UI.Services
             //    }
 
             //}
+        }
+
+        private static string GetFirstParagraph(string text)
+        {
+            var m = Regex.Match(text, @"<p>\s*(.+?)\s*</p>");
+            return m.Success
+                ? Regex.Replace(m.Groups[0].Value, "<.*?>|&.*?;", string.Empty)
+                : "";
         }
     }
 }
