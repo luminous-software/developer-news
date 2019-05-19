@@ -26,9 +26,8 @@ namespace DeveloperNews.UI.Services
                 select new FeedItem
                 {
                     Title = (string)item.Element("title"),
-                    //Description = Regex.Replace((string)item.Element("description"), "<.*?>|&.*?;", string.Empty),
-                    //Description = Regex.Match((string)item.Element("description"), "<.*?>|&.*?;").Groups[1].Value,
-                    Description = GetFirstParagraph((string)item.Element("description")),
+                    Description = Regex.Replace((string)item.Element("description"), "<.*?>|&.*?;", string.Empty),
+                    //Description = GetFirstParagraph((string)item.Element("description")),
                     Link = (string)item.Element("link"),
                     PublishDate = DateTime.Parse((string)item.Element("pubDate"))
                 }
