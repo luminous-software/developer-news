@@ -7,7 +7,7 @@
     xmlns:viewmodels="clr-namespace:DeveloperNews.UI.ViewModels"
     xmlns:vsshell="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
     Name="DeveloperNewsToolWindow"
-    d:DesignHeight="300"
+    d:DesignHeight="600"
     d:DesignWidth="300"
     Background="{DynamicResource {x:Static vsshell:VsBrushes.WindowKey}}"
     Foreground="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}"
@@ -42,7 +42,6 @@
             x:Key="ItemStyle"
             TargetType="DockPanel"
             >
-            <Setter Property="MaxHeight" Value="50" />
             <Setter Property="Margin" Value="5px" />
         </Style>
 
@@ -54,8 +53,9 @@
             <Setter Property="Foreground" Value="#7AC0FF" />
             <Setter Property="FontSize" Value="12" />
             <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="TextWrapping" Value="NoWrap" />
             <Setter Property="Margin" Value="0,0,0,2px" />
+            <Setter Property="TextTrimming" Value="None" />
+            <Setter Property="TextWrapping" Value="Wrap" />
         </Style>
 
         <Style
@@ -65,9 +65,9 @@
             <Setter Property="FontSize" Value="10" />
             <Setter Property="FontFamily" Value="Segoe WP Semilight" />
             <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}" />
-            <Setter Property="MaxHeight" Value="50" />
+            <Setter Property="MaxHeight" Value="40" />
             <Setter Property="TextTrimming" Value="WordEllipsis" />
-            <Setter Property="TextWrapping" Value="NoWrap" />
+            <Setter Property="TextWrapping" Value="Wrap" />
         </Style>
 
         <Style
@@ -85,6 +85,7 @@
             <Setter Property="FontFamily" Value="Segoe WP Semilight" />
             <Setter Property="FontSize" Value="9" />
             <Setter Property="Foreground" Value="Orange" />
+            <Setter Property="Visibility" Value="Collapsed" />
         </Style>
 
         <Style
@@ -95,6 +96,39 @@
             <Setter Property="FontSize" Value="9" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}" />
+        </Style>
+
+        <Style
+            x:Key="ViewMoreTextBlockStyle"
+            TargetType="TextBlock"
+            >
+            <Setter Property="FontFamily" Value="Segoe WP Semilight" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="Normal" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Margin" Value="15,15,15,20" />
+            <Setter Property="TextAlignment" Value="Center" />
+        </Style>
+        <Style
+            x:Key="ViewMoreLinkStyle"
+            TargetType="Hyperlink"
+            >
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Foreground" Value="#7AC0FF" />
+            <Setter Property="TextBlock.TextDecorations" Value="{x:Null}" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="FontWeight" Value="DemiBold" />
+                    <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style
+            x:Key="ViewMoreTextStyle"
+            TargetType="TextBlock"
+            >
+            <Setter Property="TextAlignment" Value="Center" />
         </Style>
     </UserControl.Resources>
 
@@ -118,8 +152,30 @@
             IsIndeterminate="True"
             Visibility="Collapsed"
             />
+
+        <TextBlock x:Name="ViewMoreTextBlock"
+            DockPanel.Dock="Bottom"
+            Style="{StaticResource ViewMoreTextBlockStyle}"
+            >
+            <Hyperlink x:Name="ViewMoreLink"
+                Command="{Binding ViewMoreCommand}"
+                CommandParameter="{Binding ViewMoreUrl}"
+                Style="{StaticResource ViewMoreLinkStyle}"
+                >
+                <Hyperlink.Inlines>
+                    <TextBlock x:Name="ViewMoreText"
+                        Style="{StaticResource ViewMoreTextStyle}"
+                        Text="{Binding ViewMore}"
+                        />
+                </Hyperlink.Inlines>
+            </Hyperlink>
+        </TextBlock>
+
         <ListView x:Name="StartPageFeedItems"
+            DockPanel.Dock="Top"
             ItemsSource="{Binding FeedItems}"
+            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+            SelectionMode="Single"
             >
             <ListView.ItemTemplate>
                 <DataTemplate>

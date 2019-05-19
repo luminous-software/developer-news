@@ -9,7 +9,7 @@ namespace DeveloperNews.UI.Views
 
     public partial class DeveloperNewsControl : UserControl
     {
-        public DeveloperNewsControlViewModel DeveloperNewsControlViewModel { get; }
+        //public DeveloperNewsControlViewModel DeveloperNewsControlViewModel { get; }
 
         public StartPageViewModel StartPageViewModel { get; set; }
 
@@ -19,13 +19,16 @@ namespace DeveloperNews.UI.Views
 
             var container = SimpleIoc.Default;
 
-            DeveloperNewsControlViewModel = container.GetInstance<DeveloperNewsControlViewModel>();
-            DataContext = DeveloperNewsControlViewModel;
-
+            //DeveloperNewsControlViewModel = container.GetInstance<DeveloperNewsControlViewModel>();
             StartPageViewModel = container.GetInstance<StartPageViewModel>();
-            StartPageFeedItems.DataContext = StartPageViewModel;
-            StartPageViewModel.Url = "https://devblogs.microsoft.com/visualstudio/feed/";  //TODO: move StartPageTabViewModel.Url to options
-            StartPageViewModel.Count = 11;  //TODO: move StartPageTabViewModel.Count to options
+            DataContext = StartPageViewModel;
+
+            StartPageViewModel.DisplayName = "Dev News";
+            StartPageViewModel.NewName = "NEW ";
+            StartPageViewModel.StartPageUrl = "https://vsstartpage.blob.core.windows.net/news/vs";  //TODO: move StartPageTabViewModel.Url to options // https://devblogs.microsoft.com/visualstudio/feed/
+            StartPageViewModel.Count = 7;  //TODO: move StartPageTabViewModel.Count to options
+            StartPageViewModel.ViewMore = "View More News";
+            StartPageViewModel.ViewMoreUrl = "https://devblogs.microsoft.com/visualstudio/";
 
             ThreadHelper.JoinableTaskFactory.Run(async delegate
             {
@@ -34,8 +37,6 @@ namespace DeveloperNews.UI.Views
         }
 
         protected override void OnInitialized(EventArgs e)
-        {
-            base.OnInitialized(e);
-        }
+            => base.OnInitialized(e);
     }
 }
