@@ -10,16 +10,16 @@ namespace DeveloperNews.UI.ViewModels
     using Core.Interfaces;
     using GalaSoft.MvvmLight.CommandWpf;
 
-    public class StartPageViewModel : ViewModelBase
+    public class DevNewsViewModel : ViewModelBase
     {
         private readonly IDataService dataService;
-        private StartPageItemViewModel selectedItem;
-        private List<StartPageItemViewModel> feedItems;
+        private DevNewsItemViewModel selectedItem;
+        private List<DevNewsItemViewModel> feedItems;
 
         //public void OnSelected(object sender, RoutedEventArgs e)
         //    => MessageBox.Show($"You clicked {SelectedItem.Title}");
 
-        public RelayCommand<string> ViewMoreCommand { get; set; }
+        public RelayCommand<string> ViewMoreCommand { get; }
 
         private RelayCommand<SelectionChangedEventArgs> _selectedItemChanged;
         public RelayCommand<SelectionChangedEventArgs> SelectedItemChanged
@@ -39,33 +39,33 @@ namespace DeveloperNews.UI.ViewModels
             }
         }
 
-        public string DisplayName { get; set; }
+        public string DisplayName { get; internal set; }
 
-        public string NewName { get; set; }
+        public string NewName { get; internal set; }
 
-        public List<StartPageItemViewModel> FeedItems
+        public List<DevNewsItemViewModel> FeedItems
         {
             get => feedItems;
 
             set => Set(nameof(FeedItems), ref feedItems, value);
         }
 
-        public StartPageItemViewModel SelectedItem
+        public DevNewsItemViewModel SelectedItem
         {
             get => selectedItem;
 
             set => Set(nameof(SelectedItem), ref selectedItem, value);
         }
 
-        public string StartPageUrl { get; set; }
+        public string DevNewsUrl { get; internal set; }
 
-        public int Count { get; set; }
+        public int Count { get; internal set; }
 
         public string ViewMore { get; internal set; }
 
         public string ViewMoreUrl { get; internal set; }
 
-        public StartPageViewModel(IDataService dataService)
+        public DevNewsViewModel(IDataService dataService)
         {
             this.dataService = dataService;
 
@@ -74,12 +74,12 @@ namespace DeveloperNews.UI.ViewModels
 
         public async Task LoadItemsAsync()
         {
-            var items = await dataService.GetItemsAsync(StartPageUrl, Count);
+            var items = await dataService.GetItemsAsync(DevNewsUrl, Count);
 
             FeedItems =
             (
                 from item in items
-                select new StartPageItemViewModel
+                select new DevNewsItemViewModel
                 {
                     Title = item.Title,
                     Description = item.Description,

@@ -25,7 +25,7 @@ namespace DeveloperNews.UI.ViewModels
                 ioc.Register<IDataService, RssDataService>();
             }
 
-            ioc.Register<StartPageViewModel>();
+            ioc.Register<DevNewsViewModel>();
         }
     }
 }

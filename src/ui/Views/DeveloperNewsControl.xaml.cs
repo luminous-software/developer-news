@@ -11,7 +11,7 @@ namespace DeveloperNews.UI.Views
     {
         //public DeveloperNewsControlViewModel DeveloperNewsControlViewModel { get; }
 
-        public StartPageViewModel StartPageViewModel { get; set; }
+        public DevNewsViewModel DevNewsViewModel { get; set; }
 
         public DeveloperNewsControl()
         {
@@ -20,19 +20,19 @@ namespace DeveloperNews.UI.Views
             var container = SimpleIoc.Default;
 
             //DeveloperNewsControlViewModel = container.GetInstance<DeveloperNewsControlViewModel>();
-            StartPageViewModel = container.GetInstance<StartPageViewModel>();
-            DataContext = StartPageViewModel;
+            DevNewsViewModel = container.GetInstance<DevNewsViewModel>();
+            DataContext = DevNewsViewModel;
 
-            StartPageViewModel.DisplayName = "Dev News";
-            StartPageViewModel.NewName = "NEW ";
-            StartPageViewModel.StartPageUrl = "https://vsstartpage.blob.core.windows.net/news/vs";  //TODO: move StartPageTabViewModel.Url to options // https://devblogs.microsoft.com/visualstudio/feed/
-            StartPageViewModel.Count = 7;  //TODO: move StartPageTabViewModel.Count to options
-            StartPageViewModel.ViewMore = "View More News";
-            StartPageViewModel.ViewMoreUrl = "https://devblogs.microsoft.com/visualstudio/";
+            DevNewsViewModel.DisplayName = "Dev News";
+            DevNewsViewModel.NewName = "NEW ";
+            DevNewsViewModel.DevNewsUrl = "https://vsstartpage.blob.core.windows.net/news/vs";  //TODO: move DevNewsViewModel.Url to options // https://devblogs.microsoft.com/visualstudio/feed/
+            DevNewsViewModel.Count = 7;  //TODO: move DevNewsViewModel.Count to options
+            DevNewsViewModel.ViewMore = "View More News";
+            DevNewsViewModel.ViewMoreUrl = "https://devblogs.microsoft.com/visualstudio/";
 
             ThreadHelper.JoinableTaskFactory.Run(async delegate
             {
-                await StartPageViewModel.LoadItemsAsync();
+                await DevNewsViewModel.LoadItemsAsync();
             });
         }
 

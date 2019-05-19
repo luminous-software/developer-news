@@ -1,6 +1,6 @@
 ﻿namespace DeveloperNews.Core.Models
 {
-    public class StartPageFeedItem : FeedItem
+    public class DevNewsFeedItem : FeedItem
     {
     }
 }
