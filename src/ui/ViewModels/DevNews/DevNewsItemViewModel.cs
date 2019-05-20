@@ -1,4 +1,4 @@
-﻿namespace DeveloperNews.UI.ViewModels
+﻿namespace DeveloperNews.UI.ViewModels.DevNews
 {
     public class DevNewsItemViewModel : FeedItemViewModel
     {

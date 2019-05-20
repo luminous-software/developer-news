@@ -1,6 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 
-namespace DeveloperNews.UI.ViewModels
+namespace DeveloperNews.UI.ViewModels.DevNews
 {
     public class DeveloperNewsControlViewModel : ViewModelBase
     {

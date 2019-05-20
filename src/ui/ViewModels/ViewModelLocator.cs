@@ -6,6 +6,7 @@ namespace DeveloperNews.UI.ViewModels
 {
     using Core.Interfaces;
     using Design;
+    using DevNews;
     using Services;
 
     public class ViewModelLocator

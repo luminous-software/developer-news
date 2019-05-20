@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 
-namespace DeveloperNews.UI.ViewModels
+namespace DeveloperNews.UI.ViewModels.DevNews
 {
     using System.Windows;
     using System.Windows.Controls;

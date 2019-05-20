@@ -51,10 +51,10 @@
     <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\RssDataService.cs" />
-    <Compile Include="ViewModels\DeveloperNewsControlViewModel.cs" />
+    <Compile Include="ViewModels\DevNews\DeveloperNewsControlViewModel.cs" />
     <Compile Include="ViewModels\FeedItemViewModel.cs" />
-    <Compile Include="ViewModels\DevNewsItemViewModel.cs" />
-    <Compile Include="ViewModels\DevNewsViewModel.cs" />
+    <Compile Include="ViewModels\DevNews\DevNewsItemViewModel.cs" />
+    <Compile Include="ViewModels\DevNews\DevNewsViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\DeveloperNewsWindow.cs" />
     <Compile Include="Views\DeveloperNewsControl.xaml.cs">

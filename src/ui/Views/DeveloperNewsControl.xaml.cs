@@ -1,11 +1,11 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows.Controls;
+using GalaSoft.MvvmLight.Ioc;
 using Microsoft.VisualStudio.Shell;
 
-namespace DeveloperNews.UI.Views
+namespace DeveloperNews.UI.Views.DevNews
 {
-    using System;
-    using GalaSoft.MvvmLight.Ioc;
-    using ViewModels;
+    using ViewModels.DevNews;
 
     public partial class DeveloperNewsControl : UserControl
     {

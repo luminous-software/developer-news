@@ -1,12 +1,12 @@
-﻿using Luminous.Code.Exceptions.ExceptionExtensions; //TODO: remove
+﻿using System;
+using System.Runtime.InteropServices;
+using System.Threading;
+using Luminous.Code.Exceptions.ExceptionExtensions; //TODO: remove
 using Luminous.Code.VisualStudio.Commands; //TODO: remove
 using Luminous.Code.VisualStudio.Packages;
 using Microsoft.VisualStudio; //TODO: remove
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop; //TODO: remove Microsoft.VisualStudio.Shell.Interop
-using System;
-using System.Runtime.InteropServices;
-using System.Threading;
 using Tasks = System.Threading.Tasks;
 
 namespace DeveloperNews
@@ -14,7 +14,7 @@ namespace DeveloperNews
     using Commands;
     using Options.Pages;
     using UI.ViewModels;
-    using UI.Views;
+    using UI.Views.DevNews;
     using static Core.Constants.StringConstants;
     using static PackageGuids;
     using static Vsix;
