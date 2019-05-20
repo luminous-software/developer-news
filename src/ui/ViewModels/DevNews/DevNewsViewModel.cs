@@ -2,13 +2,11 @@
 using System.Linq;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.CommandWpf;
 
 namespace DeveloperNews.UI.ViewModels.DevNews
 {
-    using System.Windows;
-    using System.Windows.Controls;
     using Core.Interfaces;
-    using GalaSoft.MvvmLight.CommandWpf;
 
     public class DevNewsViewModel : ViewModelBase
     {
@@ -19,25 +17,26 @@ namespace DeveloperNews.UI.ViewModels.DevNews
         //public void OnSelected(object sender, RoutedEventArgs e)
         //    => MessageBox.Show($"You clicked {SelectedItem.Title}");
 
-        public RelayCommand<string> ViewMoreCommand { get; }
+        //private RelayCommand<SelectionChangedEventArgs> _selectedItemChanged;
+        //public RelayCommand<SelectionChangedEventArgs> SelectedItemChanged
+        //{
+        //    get
+        //    {
+        //        if (_selectedItemChanged == null)
+        //        {
+        //            _selectedItemChanged = new RelayCommand<SelectionChangedEventArgs>((selectionChangedArgs) =>
+        //            {
+        //                // add a guard here to immediatelly return if you are modifying the original collection from code
 
-        private RelayCommand<SelectionChangedEventArgs> _selectedItemChanged;
-        public RelayCommand<SelectionChangedEventArgs> SelectedItemChanged
-        {
-            get
-            {
-                if (_selectedItemChanged == null)
-                {
-                    _selectedItemChanged = new RelayCommand<SelectionChangedEventArgs>((selectionChangedArgs) =>
-                    {
-                        // add a guard here to immediatelly return if you are modifying the original collection from code
+        //            });
+        //        }
 
-                    });
-                }
+        //        return _selectedItemChanged;
+        //    }
+        //}
 
-                return _selectedItemChanged;
-            }
-        }
+        public RelayCommand RefreshCommand { get; private set; }
+        public RelayCommand<string> ViewMoreCommand { get; private set; }
 
         public string DisplayName { get; internal set; }
 
@@ -46,14 +45,12 @@ namespace DeveloperNews.UI.ViewModels.DevNews
         public List<DevNewsItemViewModel> FeedItems
         {
             get => feedItems;
-
             set => Set(nameof(FeedItems), ref feedItems, value);
         }
 
         public DevNewsItemViewModel SelectedItem
         {
             get => selectedItem;
-
             set => Set(nameof(SelectedItem), ref selectedItem, value);
         }
 
@@ -69,7 +66,21 @@ namespace DeveloperNews.UI.ViewModels.DevNews
         {
             this.dataService = dataService;
 
-            ViewMoreCommand = new RelayCommand<string>((link) => MessageBox.Show(link), true);
+            RefreshCommand = new RelayCommand(() => ExecuteRefresh(), CanExecuteRefresh);
+            ViewMoreCommand = new RelayCommand<string>((link) => ExecuteViewMore(link), true);
+        }
+
+        public bool CanExecuteRefresh => true;
+
+        public void ExecuteRefresh()
+        {
+            LoadItemsAsync();
+        }
+
+        public bool CanExecuteViewMore => true;
+
+        public void ExecuteViewMore(string link)
+        {
         }
 
         public async Task LoadItemsAsync()

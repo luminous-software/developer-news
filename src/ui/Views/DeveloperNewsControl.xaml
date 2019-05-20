@@ -138,6 +138,7 @@
         <ToolBar DockPanel.Dock="Top">
             <Button
                 Name="RefreshButton"
+                Command="{Binding RefreshCommand}"
                 Background="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}"
                 Foreground="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}"
                 ToolTip="Reloads all data"
