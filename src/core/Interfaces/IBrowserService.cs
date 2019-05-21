@@ -1,7 +1,7 @@
-﻿namespace DeveloperNew.Core.Interfaces
+﻿namespace DeveloperNews.Core.Interfaces
 {
     public interface IBrowserService
     {
-        void OpenUrl(bool InternalBrowser);
+        void OpenUrl(string url, bool InternalBrowser = true);
     }
 }

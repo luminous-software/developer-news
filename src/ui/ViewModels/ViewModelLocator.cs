@@ -13,20 +13,21 @@ namespace DeveloperNews.UI.ViewModels
     {
         public ViewModelLocator()
         {
-            var ioc = SimpleIoc.Default;
+            var container = SimpleIoc.Default;
 
-            ServiceLocator.SetLocatorProvider(() => ioc);
+            ServiceLocator.SetLocatorProvider(() => container);
 
             if (ViewModelBase.IsInDesignModeStatic)
             {
-                ioc.Register<IDataService, DesignDataService>();
+                container.Register<IDataService, DesignDataService>();
             }
             else
             {
-                ioc.Register<IDataService, RssDataService>();
+                container.Register<IDataService, RssDataService>();
             }
 
-            ioc.Register<DevNewsViewModel>();
+            container.Register<IBrowserService, VisualStudioBrowserService>();
+            container.Register<DevNewsViewModel>();
         }
     }
 }

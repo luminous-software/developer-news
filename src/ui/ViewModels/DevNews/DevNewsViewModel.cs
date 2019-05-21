@@ -11,6 +11,7 @@ namespace DeveloperNews.UI.ViewModels.DevNews
     public class DevNewsViewModel : ViewModelBase
     {
         private readonly IDataService dataService;
+        private readonly IBrowserService browserService;
         private DevNewsItemViewModel selectedItem;
         private List<DevNewsItemViewModel> feedItems;
 
@@ -45,13 +46,13 @@ namespace DeveloperNews.UI.ViewModels.DevNews
         public List<DevNewsItemViewModel> FeedItems
         {
             get => feedItems;
-            set => Set(nameof(FeedItems), ref feedItems, value);
+            set => Set(ref feedItems, value);
         }
 
         public DevNewsItemViewModel SelectedItem
         {
             get => selectedItem;
-            set => Set(nameof(SelectedItem), ref selectedItem, value);
+            set => Set(ref selectedItem, value);
         }
 
         public string DevNewsUrl { get; internal set; }
@@ -62,26 +63,27 @@ namespace DeveloperNews.UI.ViewModels.DevNews
 
         public string ViewMoreUrl { get; internal set; }
 
-        public DevNewsViewModel(IDataService dataService)
+        public DevNewsViewModel(IDataService dataService, IBrowserService browserService)
         {
             this.dataService = dataService;
+            this.browserService = browserService;
 
-            RefreshCommand = new RelayCommand(() => ExecuteRefresh(), CanExecuteRefresh);
-            ViewMoreCommand = new RelayCommand<string>((link) => ExecuteViewMore(link), true);
+            //https://sergeytihon.com/2018/04/16/be-better-wpf-mvvmlight-developer-in-2018/
+            RefreshCommand = new RelayCommand(async () => await ExecuteRefreshAsync().ConfigureAwait(false), CanExecuteRefresh); //, keepTargetAlive: true));
+            ViewMoreCommand = new RelayCommand<string>(async (link) => await ExecuteViewMoreAsync(link).ConfigureAwait(false), CanExecuteViewMore); //, keepTargetAlive: true));
         }
 
         public bool CanExecuteRefresh => true;
 
-        public void ExecuteRefresh()
+        public async Task ExecuteRefreshAsync()
         {
-            LoadItemsAsync();
+            await LoadItemsAsync();
         }
 
         public bool CanExecuteViewMore => true;
 
-        public void ExecuteViewMore(string link)
-        {
-        }
+        public async Task ExecuteViewMoreAsync(string link)
+            => browserService.OpenUrl(link);
 
         public async Task LoadItemsAsync()
         {

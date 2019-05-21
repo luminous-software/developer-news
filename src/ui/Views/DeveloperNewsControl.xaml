@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:DeveloperNews.UI.ViewModels"
+    xmlns:devnews="clr-namespace:DeveloperNews.UI.ViewModels.DevNews"
     xmlns:vsshell="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
     Name="DeveloperNewsToolWindow"
     d:DesignHeight="600"
@@ -98,6 +99,38 @@
             <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}" />
         </Style>
 
+            <!--<views:AddressEditView DataContext="{Binding}" />-->
+        <DataTemplate DataType="{x:Type devnews:DevNewsItemViewModel}">
+            <DockPanel Style="{StaticResource ItemStyle}">
+                <TextBlock x:Name="Title"
+                            DockPanel.Dock="Top"
+                            Style="{StaticResource TitleStyle}"
+                            Text="{Binding Title}"
+                            />
+
+                <TextBlock x:Name="Description"
+                            DockPanel.Dock="Top"
+                            Style="{StaticResource DescriptionStyle}"
+                            Text="{Binding Description}"
+                            />
+
+                <StackPanel x:Name="DatePanelStyle"
+                            DockPanel.Dock="Top"
+                            Style="{StaticResource DatePanelStyle}"
+                            >
+                    <TextBlock x:Name="New"
+                                Style="{StaticResource NewStyle}"
+                                Text="{Binding New}"
+                                />
+
+                    <TextBlock x:Name="Date"
+                                Style="{StaticResource DateStyle}"
+                                Text="{Binding PublishDate, StringFormat='dddd, d MMMM yyyy'}"
+                                />
+                </StackPanel>
+            </DockPanel>
+        </DataTemplate>
+
         <Style
             x:Key="ViewMoreTextBlockStyle"
             TargetType="TextBlock"
@@ -178,38 +211,6 @@
             SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
             SelectionMode="Single"
             >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <DockPanel Style="{StaticResource ItemStyle}">
-                        <TextBlock x:Name="Title"
-                            DockPanel.Dock="Top"
-                            Style="{StaticResource TitleStyle}"
-                            Text="{Binding Title}"
-                            />
-
-                        <TextBlock x:Name="Description"
-                            DockPanel.Dock="Top"
-                            Style="{StaticResource DescriptionStyle}"
-                            Text="{Binding Description}"
-                            />
-
-                        <StackPanel x:Name="DatePanelStyle"
-                            DockPanel.Dock="Top"
-                            Style="{StaticResource DatePanelStyle}"
-                            >
-                            <TextBlock x:Name="New"
-                                Style="{StaticResource NewStyle}"
-                                Text="{Binding New}"
-                                />
-
-                            <TextBlock x:Name="Date"
-                                Style="{StaticResource DateStyle}"
-                                Text="{Binding PublishDate, StringFormat='dddd, d MMMM yyyy'}"
-                                />
-                        </StackPanel>
-                    </DockPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
         </ListView>
     </DockPanel>
 </UserControl>
