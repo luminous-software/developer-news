@@ -12,31 +12,12 @@ namespace DeveloperNews.UI.ViewModels.DevNews
     {
         private readonly IDataService dataService;
         private readonly IBrowserService browserService;
-        private DevNewsItemViewModel selectedItem;
         private List<DevNewsItemViewModel> feedItems;
-
-        //public void OnSelected(object sender, RoutedEventArgs e)
-        //    => MessageBox.Show($"You clicked {SelectedItem.Title}");
-
-        //private RelayCommand<SelectionChangedEventArgs> _selectedItemChanged;
-        //public RelayCommand<SelectionChangedEventArgs> SelectedItemChanged
-        //{
-        //    get
-        //    {
-        //        if (_selectedItemChanged == null)
-        //        {
-        //            _selectedItemChanged = new RelayCommand<SelectionChangedEventArgs>((selectionChangedArgs) =>
-        //            {
-        //                // add a guard here to immediatelly return if you are modifying the original collection from code
-
-        //            });
-        //        }
-
-        //        return _selectedItemChanged;
-        //    }
-        //}
+        private DevNewsItemViewModel selectedItem;
+        private int selectedIndex;
 
         public RelayCommand RefreshCommand { get; private set; }
+
         public RelayCommand<string> ViewMoreCommand { get; private set; }
 
         public string DisplayName { get; internal set; }
@@ -52,7 +33,23 @@ namespace DeveloperNews.UI.ViewModels.DevNews
         public DevNewsItemViewModel SelectedItem
         {
             get => selectedItem;
-            set => Set(ref selectedItem, value);
+            set
+            {
+                Set(ref selectedItem, value);
+
+                if (value != null)
+                {
+                    browserService.OpenUrl(selectedItem.Link);
+                    //SelectedItem = null;
+                    SelectedIndex = -1;
+                }
+            }
+        }
+
+        public int SelectedIndex
+        {
+            get => selectedIndex;
+            set => Set(ref selectedIndex, value);
         }
 
         public string DevNewsUrl { get; internal set; }
@@ -68,21 +65,18 @@ namespace DeveloperNews.UI.ViewModels.DevNews
             this.dataService = dataService;
             this.browserService = browserService;
 
-            //https://sergeytihon.com/2018/04/16/be-better-wpf-mvvmlight-developer-in-2018/
-            RefreshCommand = new RelayCommand(async () => await ExecuteRefreshAsync().ConfigureAwait(false), CanExecuteRefresh); //, keepTargetAlive: true));
-            ViewMoreCommand = new RelayCommand<string>(async (link) => await ExecuteViewMoreAsync(link).ConfigureAwait(false), CanExecuteViewMore); //, keepTargetAlive: true));
+            RefreshCommand = new RelayCommand(async () => await ExecuteRefreshAsync().ConfigureAwait(false), CanExecuteRefresh);
+            ViewMoreCommand = new RelayCommand<string>((link) => ExecuteViewMore(link), CanExecuteViewMore);
         }
 
         public bool CanExecuteRefresh => true;
 
         public async Task ExecuteRefreshAsync()
-        {
-            await LoadItemsAsync();
-        }
+            => await LoadItemsAsync();
 
         public bool CanExecuteViewMore => true;
 
-        public async Task ExecuteViewMoreAsync(string link)
+        public void ExecuteViewMore(string link)
             => browserService.OpenUrl(link);
 
         public async Task LoadItemsAsync()
