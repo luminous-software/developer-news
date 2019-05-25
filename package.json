@@ -1,7 +1,7 @@
 {
-  "name": "extensibility-logs",
+  "name": "developer-news",
   "version": "1.5.0",
-  "repository": "github.com/luminous-software/extensibility-logs",
+  "repository": "github.com/luminous-software/developer-news",
   "license": "MIT",
   "devDependencies": {
     "gulp": "^4.0.0",
