@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json.schemastore.org/vsix-publish",
+  "categories": [
+    "coding",
+    "other"
+  ],
+  "identity": {
+    "internalName": "DeveloperNews"
+  },
+  "overview": "README.md",
+  "priceCategory": "free",
+  "publisher": "YannDuran",
+  "private": false,
+  "qna": true,
+  "repo": "https://github.com/luminous-software/developer-news"
+}
