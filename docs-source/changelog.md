@@ -1,9 +1,12 @@
 ## Public Releases
 
+### v1.0 - 2019-05-26
+  - added website documentation
+
 ### v1.0 - 2019-05-25
   - initial release
   - added Start Page's Developer News feed
-  - added documentation
+  - added documentationto GitHub & Marketplace
 
 ## Internal Releases
 

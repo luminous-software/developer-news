@@ -1,0 +1,134 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Bring back Developer News!\n\n\n\n\n\n\n\n\n\n\n\n\nYou can download this extension \nfrom the Visual Studio Marketplace\n\n\n\n\nDeveloper News Is Gone\n\u00b6\n\n\nWhen Visual Studio 2019 was released, many developers were dismayed to find that the \nStart Page\n had been completely\nreplaced by the new \nStart Window\n (a big \nmodal\n dialog, which had no room for \nDeveloper News\n).\n\n\nCommunity Outcry\n\u00b6\n\n\nThere was a \nhuge\n outpouring of disatification on the \nDeveloper Community forum\n that\nnot only had the \nStart Page\n been taken away (& \nDeveloper News\n with it), but we were left with \nno way to get \nDeveloper News\n\nin Visual Studio anymore\n.\n\n\nMicrosoft's Response\n\u00b6\n\n\nIncreduously, Microsoft's response was to simply\n\nadd Developer News to the right column of the Visual Studio installer\n.\nBut nobody wanted to have to open the installer just to view their morning developer news.\nThey wanted to see it as soon as they opened Visual Studio, as they had done for years.\n\n\n\n\nMy Announcement\n\u00b6\n\n\nI wrote \na post to announce\n \"\nI've decided to write a little extension to add a tool window\nto display the missing Developer News, either as a stop-gap until MS decide to see sense, or to use instead for the\nfuture going forward if they don't\n\"\n\n\nStart Page Is Back\n\u00b6\n\n\nAnother developer, \nJan Ku\u010dera\n, released his \nStart Page on Startup\n\nextension to restore access to the \nVS 2017 Start Page\n, which of course also restored the \nDeveloper News\n feed.\nThe only problem is that Jan's extension relies on the RSS feed control in Visual Studio 2019's internal implementation\nwhich, as a \nMicrosoft employee reminded us\n, \"\nis subject to \nvanish at anytime\n\".\n\n\nDeveloper News Is Back!\n\u00b6\n\n\nMy new \nDeveloper News v1.0\n extension adds a \ndockable tool window\n to display a \nDev News\n feed,\nbased on the feed that the \nStart Page\n used to provide,\nbut which doesn't rely on Visual Studio's internal \nStart Page\n implementation.\n\n\nWhen Microsoft removes that funtionality (& I do believe that they'll remove it), any extensions that rely on it\nwill cease to function. \nDeveloper News\n has been written from the ground up and will \nnot\n be affected.\n\n\nThe \nDev News\n feed is the \nfirst\n developer news feed to be added to \nDeveloper News\n,\nwith \nmore feeds to come\n in the near future (check out [the roadmap][roadmap-url] for more details).\n\n\n\n\nSupport the Project\n\u00b6\n\n\nIf \nExtensibility Logs\n has saved you time and hassle, please come back and show your support:\n\n\n\n\nyou could \nrate \nExtensibility Logs\n (only takes a couple of seconds)\n\n\nor \nreview \nExtensibility Logs\n (help others benefit from your experience)\n\n\nor \nshout me a coke\n (I don't drink coffee or beer lol)",
+            "title": "Overview"
+        },
+        {
+            "location": "/#developer-news-is-gone",
+            "text": "When Visual Studio 2019 was released, many developers were dismayed to find that the  Start Page  had been completely\nreplaced by the new  Start Window  (a big  modal  dialog, which had no room for  Developer News ).",
+            "title": "Developer News Is Gone"
+        },
+        {
+            "location": "/#community-outcry",
+            "text": "There was a  huge  outpouring of disatification on the  Developer Community forum  that\nnot only had the  Start Page  been taken away (&  Developer News  with it), but we were left with  no way to get  Developer News \nin Visual Studio anymore .",
+            "title": "Community Outcry"
+        },
+        {
+            "location": "/#microsofts-response",
+            "text": "Increduously, Microsoft's response was to simply add Developer News to the right column of the Visual Studio installer .\nBut nobody wanted to have to open the installer just to view their morning developer news.\nThey wanted to see it as soon as they opened Visual Studio, as they had done for years.",
+            "title": "Microsoft's Response"
+        },
+        {
+            "location": "/#my-announcement",
+            "text": "I wrote  a post to announce  \" I've decided to write a little extension to add a tool window\nto display the missing Developer News, either as a stop-gap until MS decide to see sense, or to use instead for the\nfuture going forward if they don't \"",
+            "title": "My Announcement"
+        },
+        {
+            "location": "/#start-page-is-back",
+            "text": "Another developer,  Jan Ku\u010dera , released his  Start Page on Startup \nextension to restore access to the  VS 2017 Start Page , which of course also restored the  Developer News  feed.\nThe only problem is that Jan's extension relies on the RSS feed control in Visual Studio 2019's internal implementation\nwhich, as a  Microsoft employee reminded us , \" is subject to  vanish at anytime \".",
+            "title": "Start Page Is Back"
+        },
+        {
+            "location": "/#developer-news-is-back",
+            "text": "My new  Developer News v1.0  extension adds a  dockable tool window  to display a  Dev News  feed,\nbased on the feed that the  Start Page  used to provide,\nbut which doesn't rely on Visual Studio's internal  Start Page  implementation.  When Microsoft removes that funtionality (& I do believe that they'll remove it), any extensions that rely on it\nwill cease to function.  Developer News  has been written from the ground up and will  not  be affected.  The  Dev News  feed is the  first  developer news feed to be added to  Developer News ,\nwith  more feeds to come  in the near future (check out [the roadmap][roadmap-url] for more details).",
+            "title": "Developer News Is Back!"
+        },
+        {
+            "location": "/#support-the-project",
+            "text": "If  Extensibility Logs  has saved you time and hassle, please come back and show your support:   you could  rate  Extensibility Logs  (only takes a couple of seconds)  or  review  Extensibility Logs  (help others benefit from your experience)  or  shout me a coke  (I don't drink coffee or beer lol)",
+            "title": "Support the Project"
+        },
+        {
+            "location": "/getting-started/",
+            "text": "Getting Started\n\u00b6\n\n\nThere are three ways you can install \nDeveloper News\n:\n\n\n\n\nFrom Inside Visual Studio\n\n\nDownload and Install Manually\n\n\nFrom the \nsource code\n\n\n\n\nOption 1 - From Inside Visual Studio\n\u00b6\n\n\n\n\nIn Visual Studio open the \nExtensions\n dialog\n\n\nVS 2017: \nExtensions and Updates\n\n\nVS 2019: \nManage Extensions\n\n\nClick on the \nOnline\n tab\n\n\nType \ndeveloper news\n in the search box\n\n\nClick on \nDeveloper News\n in the list\n\n\nClick the \nDownload\n button\n\n\n\n\nOption 2 - Download and Install Manually\n\u00b6\n\n\n\n\nClick on this link to download from \nVisual Studio Marketplace website\n\n\nClick the \nDownload\n button, and select where to save it\n\n\nInstall the downloaded VSIX file, from wherever you saved it\n\n\n\n\nOption 3 - From the Source Code\n\u00b6\n\n\n\n\nFind the \nsource code\n on GitHub\n\n\nFork it or clone it\n\n\nCompile the solution\n\n\nInstall the compiled VSIX file",
+            "title": "Getting Started"
+        },
+        {
+            "location": "/getting-started/#getting-started",
+            "text": "There are three ways you can install  Developer News :   From Inside Visual Studio  Download and Install Manually  From the  source code",
+            "title": "Getting Started"
+        },
+        {
+            "location": "/getting-started/#option-1-from-inside-visual-studio",
+            "text": "In Visual Studio open the  Extensions  dialog  VS 2017:  Extensions and Updates  VS 2019:  Manage Extensions  Click on the  Online  tab  Type  developer news  in the search box  Click on  Developer News  in the list  Click the  Download  button",
+            "title": "Option 1 - From Inside Visual Studio"
+        },
+        {
+            "location": "/getting-started/#option-2-download-and-install-manually",
+            "text": "Click on this link to download from  Visual Studio Marketplace website  Click the  Download  button, and select where to save it  Install the downloaded VSIX file, from wherever you saved it",
+            "title": "Option 2 - Download and Install Manually"
+        },
+        {
+            "location": "/getting-started/#option-3-from-the-source-code",
+            "text": "Find the  source code  on GitHub  Fork it or clone it  Compile the solution  Install the compiled VSIX file",
+            "title": "Option 3 - From the Source Code"
+        },
+        {
+            "location": "/features/",
+            "text": "Dev News Feed\n\u00b6\n\n\nThe \nDev News\n feed is just the first feed that has been added to the new \nDeveloper News\n.\n\n\n\n\nOther Feeds\n\u00b6\n\n\nOther feeds will follow in the near future. Check out the \nRoadmap\n for more details.",
+            "title": "Features"
+        },
+        {
+            "location": "/features/#dev-news-feed",
+            "text": "The  Dev News  feed is just the first feed that has been added to the new  Developer News .",
+            "title": "Dev News Feed"
+        },
+        {
+            "location": "/features/#other-feeds",
+            "text": "Other feeds will follow in the near future. Check out the  Roadmap  for more details.",
+            "title": "Other Feeds"
+        },
+        {
+            "location": "/changelog/",
+            "text": "Public Releases\n\u00b6\n\n\nv1.0 - 2019-05-26\n\u00b6\n\n\n\n\nadded website documentation\n\n\n\n\nv1.0 - 2019-05-25\n\u00b6\n\n\n\n\ninitial release\n\n\nadded Start Page's Developer News feed\n\n\nadded documentationto GitHub & Marketplace\n\n\n\n\nInternal Releases\n\u00b6\n\n\nv0.1 - v0.9\n\u00b6\n\n\n\n\nadded bare tool window (View | Developer News)\n\n\nadded feed interface & feed item model\n\n\nadded 'RSS feed' service\n\n\nadded 'Dev News' feed (Start Page feed)\n\n\nadded feed styles\n\n\nadded 'IBrowserService' & 'BrowserService'\n\n\nadded 'Visual Studio Browser Service' (internal/external browser)\n\n\nadded 'Refresh' command\n\n\nadded 'View More News' command",
+            "title": "Changelog"
+        },
+        {
+            "location": "/changelog/#public-releases",
+            "text": "",
+            "title": "Public Releases"
+        },
+        {
+            "location": "/changelog/#v10-2019-05-26",
+            "text": "added website documentation",
+            "title": "v1.0 - 2019-05-26"
+        },
+        {
+            "location": "/changelog/#v10-2019-05-25",
+            "text": "initial release  added Start Page's Developer News feed  added documentationto GitHub & Marketplace",
+            "title": "v1.0 - 2019-05-25"
+        },
+        {
+            "location": "/changelog/#internal-releases",
+            "text": "",
+            "title": "Internal Releases"
+        },
+        {
+            "location": "/changelog/#v01-v09",
+            "text": "added bare tool window (View | Developer News)  added feed interface & feed item model  added 'RSS feed' service  added 'Dev News' feed (Start Page feed)  added feed styles  added 'IBrowserService' & 'BrowserService'  added 'Visual Studio Browser Service' (internal/external browser)  added 'Refresh' command  added 'View More News' command",
+            "title": "v0.1 - v0.9"
+        },
+        {
+            "location": "/roadmap/",
+            "text": "Feature Ideas\n\u00b6\n\n\nThe list below is a list of \npotential\n \nfeatures\n or \nenhancements\n.\nThese might be entirely \nnew features\n or \nenhancements\n to existing features.\n\n\nThey may, or may not, end up being added into \nDeveloper News\n.\n\n\n\n\n Visual Studio Blog feed\n\n\n Visual Studio Twitter feed\n\n\n Azure DevOps Blog feed\n\n\n Auto-refresh\n\n\n\n\nTicked items are available in the lastest version of \nDeveloper News\n.\n\n\nContributions\n\u00b6\n\n\nIf you'd like to implement one of the \nfeature ideas\n,\nfeel free to \nopen an \nIssue\n on GitHub\n (with the same name as the feature),\nand we can start a discussion there.\n\n\nWe can then work toward developing a pull request,\nso the your feature can be incorporated into \nDeveloper News\n.\n\n\nDon't forget to check out the \nContribution Guidelines\n.\n\n\nBug Fixes\n\u00b6\n\n\nOnce bug fixes have been fully tested, they'll be included in the \nnext public release\n.\n\n\n\n\nThere are no bug fixes that need testing at the moment",
+            "title": "Roadmap"
+        },
+        {
+            "location": "/roadmap/#feature-ideas",
+            "text": "The list below is a list of  potential   features  or  enhancements .\nThese might be entirely  new features  or  enhancements  to existing features.  They may, or may not, end up being added into  Developer News .    Visual Studio Blog feed   Visual Studio Twitter feed   Azure DevOps Blog feed   Auto-refresh   Ticked items are available in the lastest version of  Developer News .",
+            "title": "Feature Ideas"
+        },
+        {
+            "location": "/roadmap/#contributions",
+            "text": "If you'd like to implement one of the  feature ideas ,\nfeel free to  open an  Issue  on GitHub  (with the same name as the feature),\nand we can start a discussion there.  We can then work toward developing a pull request,\nso the your feature can be incorporated into  Developer News .  Don't forget to check out the  Contribution Guidelines .",
+            "title": "Contributions"
+        },
+        {
+            "location": "/roadmap/#bug-fixes",
+            "text": "Once bug fixes have been fully tested, they'll be included in the  next public release .   There are no bug fixes that need testing at the moment",
+            "title": "Bug Fixes"
+        }
+    ]
+}
