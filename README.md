@@ -8,9 +8,9 @@
 [![License][license-badge]][license-url]
 [![Donate][paypal-badge]](https://www.paypal.me/yannduran/5)
 
-[version-badge-url]: http://vsmarketplacebadge.apphb.com/version-short/YannDuran.developer-news.svg?label=version&colorB=7E57C2&style=flat-square
-[installs-badge-url]: http://vsmarketplacebadge.apphb.com/installs-short/YannDuran.developer-news.svg?colorB=7E57C2&style=flat-square
-[rating-badge-url]: http://vsmarketplacebadge.apphb.com/rating-short/YannDuran.developer-news.svg?colorB=7E57C2&style=flat-square
+[version-badge-url]: http://vsmarketplacebadge.apphb.com/version-short/YannDuran.DeveloperNews.svg?label=version&colorB=7E57C2&style=flat-square
+[installs-badge-url]: http://vsmarketplacebadge.apphb.com/installs-short/YannDuran.DeveloperNews.svg?colorB=7E57C2&style=flat-square
+[rating-badge-url]: http://vsmarketplacebadge.apphb.com/rating-short/YannDuran.DeveloperNews.svg?colorB=7E57C2&style=flat-square
 [license-badge]: https://img.shields.io/badge/license-MIT-7E57C2.svg?style=flat-square
 [license-url]: https://github.com/luminous-software/developer-news/blob/master/LICENSE
 [paypal-badge]: https://img.shields.io/badge/donate-paypal-green.svg?style=flat-square
@@ -18,7 +18,7 @@
 
 You can download this extension [from the Visual Studio Marketplace][marketplace-url]
 
-[marketplace-url]: https://marketplace.visualstudio.com/items?itemName=YannDuran.developer-news
+[marketplace-url]: https://marketplace.visualstudio.com/items?itemName=YannDuran.DeveloperNews
 
 ---
 
@@ -44,9 +44,9 @@ They wanted to see it as soon as they opened Visual Studio, as they had done for
 
 ### My Announcement
 
-I wrote [a post to announce][my-announcement-url] '_I've decided to write a little extension to add a tool window
+I wrote [a post to announce][my-announcement-url] "_I've decided to write a little extension to add a tool window
 to display the missing Developer News, either as a stop-gap until MS decide to see sense, or to use instead for the
-future going forward if they don't._'
+future going forward if they don't_"
 
 [my-announcement-url]: https://developercommunity.visualstudio.com/comments/513534/view.html
 
@@ -54,7 +54,7 @@ future going forward if they don't._'
 Another developer, [Jan Kučera][jan-kučera-url], released his [Start Page on Startup][start-page-on-startup-url]
 extension to restore access to the _VS 2017 Start Page_, which of course also displayed the _Developer News_ feed.
 The only problem is that Jan's extension relies on the RSS feed control in Visual Studio's internal implementation which,
-as a [Microsoft employee reminded us][microsoft-employee-url], '_is subject to **vanish at anytime**_'.
+as a [Microsoft employee reminded us][microsoft-employee-url], "_is subject to **vanish at anytime**_".
 
 [jan-kučera-url]: https://marketplace.visualstudio.com/publishers/JanKucera
 [start-page-on-startup-url]: https://marketplace.visualstudio.com/items?itemName=JanKucera.StartPageOnStartup
@@ -91,7 +91,7 @@ If *Developer News* has saved you time and hassle, please come back and show you
   - or [***review *Developer News****][rate-or-review-url] (help others benefit from your experience)
   - or [***shout me a coke***](https://www.paypal.me/yannduran/5) (I don't drink coffee or beer lol)
 
-[rate-or-review-url]: https://marketplace.visualstudio.com/items?itemName=YannDuran.developer-news#review-details
+[rate-or-review-url]: https://marketplace.visualstudio.com/items?itemName=YannDuran.DeveloperNews#review-details
 
 ## Contribution Guidelines
 

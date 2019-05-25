@@ -17,7 +17,7 @@ const config = {
         name: 'Yann Duran'
     },
     address: '127.0.0.1',
-    port: '8005'
+    port: '8006'
 };
 
 const consts = {
