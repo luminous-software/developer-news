@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle(Vsix.Name + ".Options")]
+[assembly: AssemblyTitle(Vsix.Name + ".Tests")]
 [assembly: AssemblyDescription(Vsix.Description)]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany(Vsix.Author)]

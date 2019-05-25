@@ -1,19 +1,42 @@
-﻿namespace DeveloperNews.UI.Views
+﻿using System;
+using System.Windows.Controls;
+using GalaSoft.MvvmLight.Ioc;
+using Microsoft.VisualStudio.Shell;
+
+namespace DeveloperNews.UI.Views.DevNews
 {
-    using System.Windows.Controls;
+    using ViewModels.DevNews;
 
     public partial class DeveloperNewsControl : UserControl
     {
-        public DeveloperNewsControl()
-            => InitializeComponent();
+        //public DeveloperNewsControlViewModel DeveloperNewsControlViewModel { get; }
 
-        //private void btnGo_Click(object sender, RoutedEventArgs e)
-        //{
-        //    using (XmlReader reader = XmlReader.Create(txtUrl.Text))
-        //    {
-        //        SyndicationFeed feed = SyndicationFeed.Load(reader);
-        //        lstFeedItems.ItemsSource = feed.Items;
-        //    }
-        //}
+        public DevNewsViewModel DevNewsViewModel { get; set; }
+
+        public DeveloperNewsControl()
+        {
+            InitializeComponent();
+
+            var container = SimpleIoc.Default;
+
+            //DeveloperNewsControlViewModel = container.GetInstance<DeveloperNewsControlViewModel>();
+            DevNewsViewModel = container.GetInstance<DevNewsViewModel>();
+            DataContext = DevNewsViewModel;
+
+            DevNewsViewModel.DisplayName = "Dev News";
+            DevNewsViewModel.NewName = "NEW ";
+            DevNewsViewModel.DevNewsUrl = "https://vsstartpage.blob.core.windows.net/news/vs";  //TODO: move DevNewsViewModel.Url to options // https://devblogs.microsoft.com/visualstudio/feed/
+            DevNewsViewModel.Count = 7;  //TODO: move DevNewsViewModel.Count to options
+            DevNewsViewModel.ViewMore = "View More News";
+            DevNewsViewModel.ViewMoreUrl = "https://devblogs.microsoft.com/visualstudio/";
+
+            ThreadHelper.JoinableTaskFactory.Run(async delegate
+            {
+                await DevNewsViewModel.LoadItemsAsync();
+            });
+        }
+
+        protected override void OnInitialized(EventArgs e)
+            => base.OnInitialized(e);
     }
 }

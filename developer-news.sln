@@ -13,6 +13,44 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeveloperNews.UI", "src\ui\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeveloperNews.Tests", "src\tests\DeveloperNews.Tests\DeveloperNews.Tests.csproj", "{20408910-F7C0-4B37-A230-30AB3B7814DA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{014BE8B5-B6C3-4256-A7AE-E78D43D07203}"
+	ProjectSection(SolutionItems) = preProject
+		commands.json = commands.json
+		gulpfile.js = gulpfile.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "version", "version", "{6CA98A40-9ACF-43A6-A937-6A2FFEA55016}"
+	ProjectSection(SolutionItems) = preProject
+		package.json = package.json
+		src\vsix\source.extension.vsixmanifest = src\vsix\source.extension.vsixmanifest
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs-source", "docs-source", "{1E0BD415-DA83-4B83-91F3-BF29FF7D423F}"
+	ProjectSection(SolutionItems) = preProject
+		docs-source\changelog.md = docs-source\changelog.md
+		docs-source\features.md = docs-source\features.md
+		docs-source\getting-started.md = docs-source\getting-started.md
+		docs-source\index.md = docs-source\index.md
+		docs-source\marketplace.md = docs-source\marketplace.md
+		mkdocs.yml = mkdocs.yml
+		README.md = README.md
+		docs-source\roadmap.md = docs-source\roadmap.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{3AF3C1CE-0B9D-4B2F-A9EE-00B7A7414906}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		.github\CONTRIBUTING.md = .github\CONTRIBUTING.md
+		.github\ISSUE_TEMPLATE.md = .github\ISSUE_TEMPLATE.md
+		LICENSE = LICENSE
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "publish", "publish", "{6521B5BB-B004-47C9-81E9-143AEF02BE46}"
+	ProjectSection(SolutionItems) = preProject
+		publish-manifest.json = publish-manifest.json
+		publish.cmd = publish.cmd
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +80,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6CA98A40-9ACF-43A6-A937-6A2FFEA55016} = {014BE8B5-B6C3-4256-A7AE-E78D43D07203}
+		{1E0BD415-DA83-4B83-91F3-BF29FF7D423F} = {014BE8B5-B6C3-4256-A7AE-E78D43D07203}
+		{3AF3C1CE-0B9D-4B2F-A9EE-00B7A7414906} = {014BE8B5-B6C3-4256-A7AE-E78D43D07203}
+		{6521B5BB-B004-47C9-81E9-143AEF02BE46} = {014BE8B5-B6C3-4256-A7AE-E78D43D07203}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5815276C-715F-4D15-B8FC-01D0B77A7644}

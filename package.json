@@ -1,0 +1,12 @@
+{
+  "name": "developer-news",
+  "version": "1.0.0",
+  "repository": "github.com/luminous-software/developer-news",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-all-tasks": "^1.1.4",
+    "gulp-util": "^3.0.8",
+    "opn": "^5.5.0"
+  }
+}

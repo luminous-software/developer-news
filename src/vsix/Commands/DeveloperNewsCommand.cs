@@ -5,7 +5,7 @@ using Tasks = System.Threading.Tasks;
 
 namespace DeveloperNews.Commands
 {
-    using UI.Views;
+    using UI.Views.DevNews;
 
     internal sealed class DeveloperNewsCommand : AsyncDynamicCommand
     {

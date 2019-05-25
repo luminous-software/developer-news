@@ -1,8 +1,8 @@
-﻿using Microsoft.VisualStudio.Shell;
-using System;
+﻿using System;
 using System.Runtime.InteropServices;
+using Microsoft.VisualStudio.Shell;
 
-namespace DeveloperNews.UI.Views
+namespace DeveloperNews.UI.Views.DevNews
 {
     using static UI.Constants.Guids;
 
@@ -11,9 +11,9 @@ namespace DeveloperNews.UI.Views
     {
         public DeveloperNewsWindow() : base(null)
         {
-            this.Caption = "Developer News";
-
-            this.Content = new DeveloperNewsControl();
+            Caption = "Developer News";
+            //BitmapImageMoniker = new ImageMoniker { Guid = Guid.NewGuid(), Id = 0 };  //TODO: real ImageMoniker values needed
+            Content = new DeveloperNewsControl();
         }
     }
 }

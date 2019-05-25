@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="DB0B2617-846F-4867-9D3C-E22A094DD21B" Version="0.1.01" Language="en-US" Publisher="Yann Duran" />
+        <Identity Id="E35E8D0A-2D8C-4A18-BF10-CB446334A278" Version="1.0" Language="en-US" Publisher="Yann Duran" />
         <DisplayName>Developer News</DisplayName>
-        <Description xml:space="preserve">Developer News brought back to VS 2019</Description>
+        <Description xml:space="preserve">Bring Back Developer News!</Description>
+        <MoreInfo>https://luminous-software.solutions/developer-news</MoreInfo>
+        <GettingStartedGuide>https://luminous-software.solutions/developer-news/getting-started</GettingStartedGuide>
+        <ReleaseNotes>https://luminous-software.solutions/developer-news/</ReleaseNotes>
         <Icon>Resources\logo.png</Icon>
-        <Tags>developer news</Tags>
-        <Preview>true</Preview>
+        <Tags>developer news, developer-news, start page, luminous, yannduran, yd</Tags>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0, 17.0)" />
