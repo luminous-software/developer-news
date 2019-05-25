@@ -3,9 +3,9 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:devnews="clr-namespace:DeveloperNews.UI.ViewModels.DevNews"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:DeveloperNews.UI.ViewModels"
-    xmlns:devnews="clr-namespace:DeveloperNews.UI.ViewModels.DevNews"
     xmlns:vsshell="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
     Name="DeveloperNewsToolWindow"
     d:DesignHeight="600"
@@ -99,34 +99,33 @@
             <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}" />
         </Style>
 
-            <!--<views:AddressEditView DataContext="{Binding}" />-->
         <DataTemplate DataType="{x:Type devnews:DevNewsItemViewModel}">
             <DockPanel Style="{StaticResource ItemStyle}">
                 <TextBlock x:Name="Title"
-                            DockPanel.Dock="Top"
-                            Style="{StaticResource TitleStyle}"
-                            Text="{Binding Title}"
-                            />
+                    DockPanel.Dock="Top"
+                    Style="{StaticResource TitleStyle}"
+                    Text="{Binding Title}"
+                    />
 
                 <TextBlock x:Name="Description"
-                            DockPanel.Dock="Top"
-                            Style="{StaticResource DescriptionStyle}"
-                            Text="{Binding Description}"
-                            />
+                    DockPanel.Dock="Top"
+                    Style="{StaticResource DescriptionStyle}"
+                    Text="{Binding Description}"
+                    />
 
                 <StackPanel x:Name="DatePanelStyle"
-                            DockPanel.Dock="Top"
-                            Style="{StaticResource DatePanelStyle}"
-                            >
+                    DockPanel.Dock="Top"
+                    Style="{StaticResource DatePanelStyle}"
+                    >
                     <TextBlock x:Name="New"
-                                Style="{StaticResource NewStyle}"
-                                Text="{Binding New}"
-                                />
+                        Style="{StaticResource NewStyle}"
+                        Text="{Binding New}"
+                        />
 
                     <TextBlock x:Name="Date"
-                                Style="{StaticResource DateStyle}"
-                                Text="{Binding PublishDate, StringFormat='dddd, d MMMM yyyy'}"
-                                />
+                        Style="{StaticResource DateStyle}"
+                        Text="{Binding PublishDate, StringFormat='dddd, d MMMM yyyy'}"
+                        />
                 </StackPanel>
             </DockPanel>
         </DataTemplate>
@@ -143,6 +142,7 @@
             <Setter Property="Margin" Value="15,15,15,20" />
             <Setter Property="TextAlignment" Value="Center" />
         </Style>
+
         <Style
             x:Key="ViewMoreLinkStyle"
             TargetType="Hyperlink"
@@ -157,6 +157,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+
         <Style
             x:Key="ViewMoreTextStyle"
             TargetType="TextBlock"
@@ -171,8 +172,8 @@
         <ToolBar DockPanel.Dock="Top">
             <Button
                 Name="RefreshButton"
-                Command="{Binding RefreshCommand}"
                 Background="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}"
+                Command="{Binding RefreshCommand}"
                 Foreground="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}"
                 ToolTip="Reloads all data"
                 >
@@ -208,9 +209,9 @@
         <ListView x:Name="DevNewsFeedItems"
             DockPanel.Dock="Top"
             ItemsSource="{Binding FeedItems}"
+            SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
             SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
             SelectionMode="Single"
-            >
-        </ListView>
+            />
     </DockPanel>
 </UserControl>

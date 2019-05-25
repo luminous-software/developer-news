@@ -12,6 +12,7 @@ namespace DeveloperNews.UI.Views.DevNews
         public DeveloperNewsWindow() : base(null)
         {
             Caption = "Developer News";
+            //BitmapImageMoniker = new ImageMoniker { Guid = Guid.NewGuid(), Id = 0 };  //TODO: real ImageMoniker values needed
             Content = new DeveloperNewsControl();
         }
     }
