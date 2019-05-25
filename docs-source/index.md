@@ -42,9 +42,9 @@ They wanted to see it as soon as they opened Visual Studio, as they had done for
 
 ### My Announcement
 
-I wrote [a post to announce][my-announcement-url] '_I've decided to write a little extension to add a tool window
+I wrote [a post to announce][my-announcement-url] "_I've decided to write a little extension to add a tool window
 to display the missing Developer News, either as a stop-gap until MS decide to see sense, or to use instead for the
-future going forward if they don't._'
+future going forward if they don't_"
 
 [my-announcement-url]: https://developercommunity.visualstudio.com/comments/513534/view.html
 
@@ -52,7 +52,7 @@ future going forward if they don't._'
 Another developer, [Jan Kučera][jan-kučera-url], released his [Start Page on Startup][start-page-on-startup-url]
 extension to restore access to the _VS 2017 Start Page_, which of course also displayed the _Developer News_ feed.
 The only problem is that Jan's extension relies on the RSS feed control in Visual Studio's internal implementation which,
-as a [Microsoft employee reminded us][microsoft-employee-url], '_is subject to **vanish at anytime**_'.
+as a [Microsoft employee reminded us][microsoft-employee-url], "_is subject to **vanish at anytime**_".
 
 [jan-kučera-url]: https://marketplace.visualstudio.com/publishers/JanKucera
 [start-page-on-startup-url]: https://marketplace.visualstudio.com/items?itemName=JanKucera.StartPageOnStartup
@@ -79,6 +79,6 @@ If *Extensibility Logs* has saved you time and hassle, please come back and show
 - or [***review *Extensibility Logs****][rate-or-review-url] (help others benefit from your experience)
 - or [***shout me a coke***](https://www.paypal.me/yannduran/5) (I don't drink coffee or beer lol)
 
-[rate-or-review-url]: https://marketplace.visualstudio.com/items?itemName=YannDuran.ExtensibilityLogs#review-details
-[qna-url]: https://marketplace.visualstudio.com/items?itemName=YannDuran.ExtensibilityLogs#qna
-[suggestions-url]: https://marketplace.visualstudio.com/items?itemName=YannDuran.ExtensibilityLogs#qna
+[rate-or-review-url]: https://marketplace.visualstudio.com/items?itemName=YannDuran.DeveloperNews#review-details
+[qna-url]: https://marketplace.visualstudio.com/items?itemName=YannDuran.DeveloperNews#qna
+[suggestions-url]: https://marketplace.visualstudio.com/items?itemName=YannDuran.DeveloperNews#qna

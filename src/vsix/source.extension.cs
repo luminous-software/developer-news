@@ -7,12 +7,12 @@ namespace DeveloperNews
 {
     internal sealed partial class Vsix
     {
-        public const string Id = "DB0B2617-846F-4867-9D3C-E22A094DD21B";
+        public const string Id = "E35E8D0A-2D8C-4A18-BF10-CB446334A278";
         public const string Name = "Developer News";
-        public const string Description = @"Developer News brought back to VS 2019";
+        public const string Description = @"Bring Back Developer News!";
         public const string Language = "en-US";
-        public const string Version = "0.1.1";
+        public const string Version = "1.0";
         public const string Author = "Yann Duran";
-        public const string Tags = "developer news";
+        public const string Tags = "developer news, developer-news, start page, luminous, yannduran, yd";
     }
 }
