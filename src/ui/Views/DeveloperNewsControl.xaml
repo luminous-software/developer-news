@@ -215,3 +215,5 @@
             />
     </DockPanel>
 </UserControl>
+
+<!--  d:DataContext="{d:DesignInstance Type=local:MyViewModel, IsDesignTimeCreatable=True}"  -->
