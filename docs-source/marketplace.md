@@ -34,11 +34,11 @@ Increduously, Microsoft's response was to simply
 But nobody wanted to have to open the installer just to view their morning developer news.
 They wanted to see it as soon as they opened Visual Studio, as they had done for years.
 
-![VS Installer](assets/images/installer.png)
+![VS Installer](https://github.com/luminous-software/developer-news/raw/master/docs/assets/images/installer.png)
 
 [microsoft-announcement-url]: https://developercommunity.visualstudio.com/comments/469066/view.html
 
-### My Announcement
+### Forum Announcement
 
 I wrote [a post to announce][my-announcement-url] "_I've decided to write a little extension to add a tool window
 to display the missing Developer News, either as a stop-gap until MS decide to see sense, or to use instead for the
@@ -68,7 +68,7 @@ will cease to function. _Developer News_ has been written from the ground up and
 The _Dev News_ feed is the **first** developer news feed to be added to _Developer News_,
 with **more feeds to come** in the near future (check out [the roadmap][roadmap-url]for more details).
 
-![Dev News](assets/images/dev-news.png)
+![Dev News](https://github.com/luminous-software/developer-news/raw/master/docs/assets/images/dev-news.png)
 
 [developer-news-url]: https://marketplace.visualstudio.com/items?itemName=YannDuran.DeveloperNews
 

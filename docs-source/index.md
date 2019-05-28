@@ -43,7 +43,7 @@ They wanted to see it as soon as they opened Visual Studio, as they had done for
 
 [microsoft-announcement-url]: https://developercommunity.visualstudio.com/comments/469066/view.html
 
-### My Announcement
+### Forum Announcement
 
 I wrote [a post to announce][my-announcement-url] "_I've decided to write a little extension to add a tool window
 to display the missing Developer News, either as a stop-gap until MS decide to see sense, or to use instead for the

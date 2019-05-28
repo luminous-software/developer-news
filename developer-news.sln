@@ -26,16 +26,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "version", "version", "{6CA9
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs-source", "docs-source", "{1E0BD415-DA83-4B83-91F3-BF29FF7D423F}"
-	ProjectSection(SolutionItems) = preProject
-		docs-source\changelog.md = docs-source\changelog.md
-		docs-source\features.md = docs-source\features.md
-		docs-source\getting-started.md = docs-source\getting-started.md
-		docs-source\index.md = docs-source\index.md
-		docs-source\marketplace.md = docs-source\marketplace.md
-		mkdocs.yml = mkdocs.yml
-		README.md = README.md
-		docs-source\roadmap.md = docs-source\roadmap.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{3AF3C1CE-0B9D-4B2F-A9EE-00B7A7414906}"
 	ProjectSection(SolutionItems) = preProject
@@ -49,6 +39,26 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "publish", "publish", "{6521
 	ProjectSection(SolutionItems) = preProject
 		publish-manifest.json = publish-manifest.json
 		publish.cmd = publish.cmd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "other", "other", "{8A6F448D-3822-4DAC-942D-00274F1DD568}"
+	ProjectSection(SolutionItems) = preProject
+		docs-source\getting-started.md = docs-source\getting-started.md
+		mkdocs.yml = mkdocs.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "changes", "changes", "{2C4A9B8A-C4DE-4854-A698-CB4D465BAF0A}"
+	ProjectSection(SolutionItems) = preProject
+		docs-source\changelog.md = docs-source\changelog.md
+		docs-source\features.md = docs-source\features.md
+		docs-source\roadmap.md = docs-source\roadmap.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "main", "main", "{99A9DF34-83E3-432D-8BD3-A8DEA7732660}"
+	ProjectSection(SolutionItems) = preProject
+		docs-source\index.md = docs-source\index.md
+		docs-source\marketplace.md = docs-source\marketplace.md
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global
@@ -86,6 +96,9 @@ Global
 		{1E0BD415-DA83-4B83-91F3-BF29FF7D423F} = {014BE8B5-B6C3-4256-A7AE-E78D43D07203}
 		{3AF3C1CE-0B9D-4B2F-A9EE-00B7A7414906} = {014BE8B5-B6C3-4256-A7AE-E78D43D07203}
 		{6521B5BB-B004-47C9-81E9-143AEF02BE46} = {014BE8B5-B6C3-4256-A7AE-E78D43D07203}
+		{8A6F448D-3822-4DAC-942D-00274F1DD568} = {1E0BD415-DA83-4B83-91F3-BF29FF7D423F}
+		{2C4A9B8A-C4DE-4854-A698-CB4D465BAF0A} = {1E0BD415-DA83-4B83-91F3-BF29FF7D423F}
+		{99A9DF34-83E3-432D-8BD3-A8DEA7732660} = {1E0BD415-DA83-4B83-91F3-BF29FF7D423F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5815276C-715F-4D15-B8FC-01D0B77A7644}
