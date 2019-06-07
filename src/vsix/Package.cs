@@ -12,10 +12,10 @@ namespace DeveloperNews
     /// </summary>
     internal sealed partial class PackageGuids
     {
-        public const string PackageString = "0298784e-e549-4e67-b3f3-af01a28a9f88";
+        public const string PackageString = "6dd5e0a2-9ddd-415e-a92b-ffb8030544fd";
         public static Guid Package = new Guid(PackageString);
 
-        public const string PackageCommandSetString = "2275760e-e992-461e-ae66-2e42f176d277";
+        public const string PackageCommandSetString = "caff25ce-14c9-4f66-8c70-5eb3f05e259b";
         public static Guid PackageCommandSet = new Guid(PackageCommandSetString);
     }
     /// <summary>

@@ -16,6 +16,7 @@ namespace DeveloperNews.UI.Services
         public async Task<List<FeedItem>> GetItemsAsync(string url, int count)
         {
             //https://wp.qmatteoq.com/?p=6486
+            //https://blog.qmatteoq.com/the-mvvm-pattern-dependency-injection/
             var client = new HttpClient();
             var result = await client.GetStringAsync(url);
             var xdoc = XDocument.Parse(result);
