@@ -47,6 +47,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\DeveloperNewsCommand.cs" />
+    <Compile Include="Events\SolutionEventsHandler.cs" />
+    <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="Package.class.cs">
       <DependentUpon>Package.vsct</DependentUpon>
     </Compile>
@@ -112,7 +114,7 @@
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup>
     <PostBuildEvent>
-</PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
