@@ -1,6 +1,6 @@
 To display the new *Developer News* window:
 
-- click **Tools** | **Developer News**
+- click **View** | **Developer News**
  
 ## Dev News Feed
 
