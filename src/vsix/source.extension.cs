@@ -13,6 +13,6 @@ namespace DeveloperNews
         public const string Language = "en-US";
         public const string Version = "1.1";
         public const string Author = "Yann Duran";
-        public const string Tags = "developer news, developer-news, start page, luminous, yannduran, yd";
+        public const string Tags = "developer news, developer-news, developernews, start page, start-page, startpage, luminous, yannduran, yd";
     }
 }

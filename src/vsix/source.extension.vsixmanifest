@@ -9,7 +9,7 @@
         <GettingStartedGuide>https://luminous-software.solutions/developer-news/getting-started</GettingStartedGuide>
         <ReleaseNotes>https://luminous-software.solutions/developer-news/</ReleaseNotes>
         <Icon>Resources\logo.png</Icon>
-        <Tags>developer news, developer-news, start page, luminous, yannduran, yd</Tags>
+        <Tags>developer news, developer-news, developernews, start page, start-page, startpage, luminous, yannduran, yd</Tags>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0, 17.0)" />
