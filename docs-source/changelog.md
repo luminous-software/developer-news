@@ -1,5 +1,8 @@
 ## Public Releases
 
+### v1.1 - 2019-07-01
+- added option to open links in default browser
+
 ### v1.02 - 2019-06-07
 - fixed conflict with Extensibility Logs
 
