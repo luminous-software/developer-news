@@ -29,10 +29,13 @@ namespace DeveloperNews
 
     public sealed class PackageClass : AsyncPackageBase
     {
+        private static GeneralDialogPage generalOptions;
+
+        public static GeneralDialogPage GeneralOptions
+                    => generalOptions ?? (generalOptions = GetDialogPage<GeneralDialogPage>());
+
         public PackageClass() : base(PackageCommandSet, Name, Description)
-        {
-            _ = new ViewModelLocator();
-        }
+            => _ = new ViewModelLocator();
 
         protected override async Tasks.Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
