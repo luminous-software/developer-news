@@ -17,5 +17,6 @@
         public const string PackageName = Vsix.Name;
         public const string PackageFeatureSet = PackageName + Space + FeatureSet;
         public const string PackageVersion = "Version Number";
+        public const string OpenLinksInVS = "Open Links in VS";
     }
 }

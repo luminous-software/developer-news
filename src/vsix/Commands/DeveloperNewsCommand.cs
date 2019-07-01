@@ -13,8 +13,11 @@ namespace DeveloperNews.Commands
             : base(package, PackageIds.DeveloperNewsCommand)
         { }
 
-        public async static Tasks.Task InstantiateAsync(AsyncPackageBase package)
+        public static async Tasks.Task InstantiateAsync(AsyncPackageBase package)
             => await InstantiateAsync(new DeveloperNewsCommand(package));
+
+        protected override bool CanExecute
+          => PackageClass.GeneralOptions.DeveloperNewsEnabled;
 
         protected override void OnExecute(OleMenuCommand command)
             => ExecuteCommand()
