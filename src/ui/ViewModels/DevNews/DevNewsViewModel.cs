@@ -3,10 +3,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using Luminous.Code.VisualStudio.Packages;
 
 namespace DeveloperNews.UI.ViewModels.DevNews
 {
     using Core.Interfaces;
+    using Options.Pages;
 
     public class DevNewsViewModel : ViewModelBase
     {
@@ -15,6 +17,10 @@ namespace DeveloperNews.UI.ViewModels.DevNews
         private List<DevNewsItemViewModel> feedItems;
         private DevNewsItemViewModel selectedItem;
         private int selectedIndex;
+        private static GeneralDialogPage generalOptions;
+
+        public static GeneralDialogPage GeneralOptions
+            => generalOptions ?? (generalOptions = AsyncPackageBase.GetDialogPage<GeneralDialogPage>());
 
         public RelayCommand RefreshCommand { get; private set; }
 
@@ -39,7 +45,7 @@ namespace DeveloperNews.UI.ViewModels.DevNews
 
                 if (value != null)
                 {
-                    browserService.OpenUrl(selectedItem.Link);
+                    browserService.OpenUrl(selectedItem.Link, GeneralOptions.OpenLinksInVS);
                     //SelectedItem = null;
                     SelectedIndex = -1;
                 }
@@ -77,7 +83,7 @@ namespace DeveloperNews.UI.ViewModels.DevNews
         public bool CanExecuteViewMore => true;
 
         public void ExecuteViewMore(string link)
-            => browserService.OpenUrl(link);
+            => browserService.OpenUrl(link, GeneralOptions.OpenLinksInVS);
 
         public async Task LoadItemsAsync()
         {

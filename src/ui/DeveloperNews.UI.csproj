@@ -87,6 +87,10 @@
       <Project>{37C10221-0383-41E0-8C01-F06CA16B9D82}</Project>
       <Name>DeveloperNews.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\options\DeveloperNews.Options.csproj">
+      <Project>{d1eaad10-2832-42de-b8e7-eba03af83bcd}</Project>
+      <Name>DeveloperNews.Options</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
