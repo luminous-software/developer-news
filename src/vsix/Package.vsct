@@ -25,7 +25,7 @@
 
       <Button guid="PackageCommandSet" id="PackageOptionsCommand" type="Button" priority="0x0002">
         <Parent guid="PackageCommandSet" id="PackageGroup" />
-        <Icon guid="ImageCatalogGuid" id="Keyboard" />
+        <Icon guid="ImageCatalogGuid" id="ConditionalRuleIfThen" />
         <CommandFlag>IconIsMoniker</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>

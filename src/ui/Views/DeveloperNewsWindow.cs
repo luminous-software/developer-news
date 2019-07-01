@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using Microsoft.VisualStudio.Imaging;
 using Microsoft.VisualStudio.Shell;
 
 namespace DeveloperNews.UI.Views.DevNews
@@ -12,7 +13,7 @@ namespace DeveloperNews.UI.Views.DevNews
         public DeveloperNewsWindow() : base(null)
         {
             Caption = "Developer News";
-            //BitmapImageMoniker = new ImageMoniker { Guid = Guid.NewGuid(), Id = 0 };  //TODO: real ImageMoniker values needed
+            BitmapImageMoniker = KnownMonikers.ConditionalRuleIfThen;
             Content = new DeveloperNewsControl();
         }
     }
