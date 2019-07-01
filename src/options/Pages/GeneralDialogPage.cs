@@ -16,7 +16,7 @@ namespace DeveloperNews.Options.Pages
         [Category(H1 + PackageName)]
         [DisplayName(Enable + Space + Quote + PackageName + Quote)]
         [Description("Allows the whole set of '" + PackageName + "' features to be turned off together")]
-        public bool DeveloperNewsEnabled { get; set; } = true;
+        public bool EnableDeveloperNews { get; set; } = true;
 
         [Category(H1 + PackageName)]
         [DisplayName(Constants.PageConstants.PackageVersion)]

@@ -24,7 +24,7 @@ namespace DeveloperNews
     internal sealed partial class PackageIds
     {
         public const int PackageGroup = 0xB000;
-        public const int DeveloperNewsCommand = 0x0210;
-        public const int PackageOptionsCommand = 0x0215;
+        public const int ViewDeveloperNews = 0x0210;
+        public const int ViewPackageOptions = 0x0215;
     }
 }

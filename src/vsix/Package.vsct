@@ -42,8 +42,8 @@
 
       <IDSymbol name="PackageGroup" value="0xB000" />
 
-      <IDSymbol name="DeveloperNewsCommand" value="0x0210" />
-      <IDSymbol name="PackageOptionsCommand" value="0x0215" />
+      <IDSymbol name="ViewDeveloperNews" value="0x0210" />
+      <IDSymbol name="ViewPackageOptions" value="0x0215" />
     </GuidSymbol>
   </Symbols>
 </CommandTable>
