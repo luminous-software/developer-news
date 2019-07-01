@@ -27,5 +27,10 @@ namespace DeveloperNews.Options.Pages
         [DisplayName(Enable + Space + Quote + Constants.PageConstants.OpenLinksInVS + Quote)]
         [Description("Determines if links are opened in VS or in the user's default browser")]
         public bool OpenLinksInVS { get; set; } = true;
+
+        [Category(H2 + Features)]
+        [DisplayName(Enable + Space + Quote + Constants.PageConstants.EnableDeveloperNewsOptions + Quote)]
+        [Description("Determines if a button to open" + Space + Quote + PackageName + Quote + Space + "options is added to the" + Space + Quote + "Tools" + Quote + Space + "Menu")]
+        public bool EnableDeveloperNewsOptions { get; set; } = true;
     }
 }

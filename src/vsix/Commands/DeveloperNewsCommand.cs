@@ -6,10 +6,9 @@
     internal abstract class DeveloperNewsCommand : AsyncDynamicCommand
     {
         protected DeveloperNewsCommand(AsyncPackageBase package, int id) : base(package, id)
-        {
-        }
+        { }
 
         protected override bool CanExecute
-           => PackageClass.GeneralOptions.EnableDeveloperNews;
+           => base.CanExecute && PackageClass.GeneralOptions.EnableDeveloperNews;
     }
 }

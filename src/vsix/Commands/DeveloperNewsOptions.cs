@@ -5,25 +5,25 @@ using Tasks = System.Threading.Tasks;
 
 namespace DeveloperNews.Commands
 {
-    using UI.Views.DevNews;
+    using Options.Pages;
 
-    internal sealed class ViewDeveloperNews : DeveloperNewsCommand
+    internal sealed class DeveloperNewsOptions : DeveloperNewsCommand
     {
-        private ViewDeveloperNews(AsyncPackageBase package)
-            : base(package, PackageIds.ViewDeveloperNews)
+        private DeveloperNewsOptions(AsyncPackageBase package)
+            : base(package, PackageIds.DeveloperNewsOptions)
         { }
 
         public static async Tasks.Task InstantiateAsync(AsyncPackageBase package)
-            => await InstantiateAsync(new ViewDeveloperNews(package));
+            => await InstantiateAsync(new DeveloperNewsOptions(package));
 
         protected override bool CanExecute
-          => base.CanExecute && PackageClass.GeneralOptions.EnableDeveloperNews;
+          => base.CanExecute && PackageClass.GeneralOptions.EnableDeveloperNewsOptions;
 
         protected override void OnExecute(OleMenuCommand command)
             => ExecuteCommand()
                 .ShowProblem();
 
         private CommandResult ExecuteCommand()
-            => PackageClass.ShowToolWindow<DeveloperNewsWindow>(Package.DisposalToken);
+            => Package?.ShowOptionsPage<GeneralDialogPage>();
     }
 }

@@ -41,6 +41,7 @@ namespace DeveloperNews
         {
             await base.InitializeAsync(cancellationToken, progress);
             await ViewDeveloperNews.InstantiateAsync(this);
+            await DeveloperNewsOptions.InstantiateAsync(this);
 
             //await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
         }

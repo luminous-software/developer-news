@@ -47,6 +47,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\DeveloperNewsCommand.cs" />
+    <Compile Include="Commands\DeveloperNewsOptions.cs" />
     <Compile Include="Commands\ViewDeveloperNews.cs" />
     <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="Package.class.cs">

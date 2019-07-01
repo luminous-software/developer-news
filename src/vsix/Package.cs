@@ -25,6 +25,6 @@ namespace DeveloperNews
     {
         public const int PackageGroup = 0xB000;
         public const int ViewDeveloperNews = 0x0210;
-        public const int ViewDeveloperNewsOptions = 0x0215;
+        public const int DeveloperNewsOptions = 0x0215;
     }
 }
