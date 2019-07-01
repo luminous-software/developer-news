@@ -13,23 +13,24 @@
     </Groups>
 
     <Buttons>
-      <Button guid="PackageCommandSet" id="DeveloperNewsCommand" priority="0x0100" type="Button">
+      <Button guid="PackageCommandSet" id="ViewDeveloperNews" priority="0x0100" type="Button">
         <Parent guid="guidSHLMainMenu" id="IDG_VS_VIEW_BROWSER"/>
         <Icon guid="ImageCatalogGuid" id="DataField" />
         <CommandFlag>IconIsMoniker</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
+          <CommandName>ViewDeveloperNews</CommandName>
           <ButtonText>Developer News</ButtonText>
         </Strings>
       </Button>
 
-      <Button guid="PackageCommandSet" id="PackageOptionsCommand" type="Button" priority="0x0002">
+      <Button guid="PackageCommandSet" id="ViewDeveloperNewsOptions" type="Button" priority="0x0002">
         <Parent guid="PackageCommandSet" id="PackageGroup" />
         <Icon guid="ImageCatalogGuid" id="ConditionalRuleIfThen" />
         <CommandFlag>IconIsMoniker</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
-          <CommandName>DeveloperNewsOptions</CommandName>
+          <CommandName>ViewDeveloperNewsOptions</CommandName>
           <ButtonText>Developer News Options</ButtonText>
         </Strings>
       </Button>
@@ -43,7 +44,7 @@
       <IDSymbol name="PackageGroup" value="0xB000" />
 
       <IDSymbol name="ViewDeveloperNews" value="0x0210" />
-      <IDSymbol name="ViewPackageOptions" value="0x0215" />
+      <IDSymbol name="ViewDeveloperNewsOptions" value="0x0215" />
     </GuidSymbol>
   </Symbols>
 </CommandTable>

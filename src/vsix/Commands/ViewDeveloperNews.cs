@@ -7,7 +7,7 @@ namespace DeveloperNews.Commands
 {
     using UI.Views.DevNews;
 
-    internal sealed class ViewDeveloperNews : PackageCommand
+    internal sealed class ViewDeveloperNews : DeveloperNewsCommand
     {
         private ViewDeveloperNews(AsyncPackageBase package)
             : base(package, PackageIds.ViewDeveloperNews)

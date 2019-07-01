@@ -46,7 +46,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Commands\PackageCommand.cs" />
+    <Compile Include="Commands\DeveloperNewsCommand.cs" />
     <Compile Include="Commands\ViewDeveloperNews.cs" />
     <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="Package.class.cs">
