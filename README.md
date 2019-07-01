@@ -96,7 +96,7 @@ with **more feeds to come** in the near future (check out [the roadmap][roadmap-
 
 [developer-news-url]: https://marketplace.visualstudio.com/items?itemName=YannDuran.DeveloperNews
 [roadmap-url]: https://luminous-software.solutions/developer-news/roadmap
-
+[give-back-start-page-url]: https://developercommunity.visualstudio.com/idea/434456/start-page-please-give-it-back.html
 
 ## More Information
 
