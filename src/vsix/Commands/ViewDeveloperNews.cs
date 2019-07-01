@@ -7,14 +7,14 @@ namespace DeveloperNews.Commands
 {
     using UI.Views.DevNews;
 
-    internal sealed class DeveloperNewsCommand : AsyncDynamicCommand
+    internal sealed class ViewDeveloperNews : AsyncDynamicCommand
     {
-        private DeveloperNewsCommand(AsyncPackageBase package)
+        private ViewDeveloperNews(AsyncPackageBase package)
             : base(package, PackageIds.DeveloperNewsCommand)
         { }
 
         public static async Tasks.Task InstantiateAsync(AsyncPackageBase package)
-            => await InstantiateAsync(new DeveloperNewsCommand(package));
+            => await InstantiateAsync(new ViewDeveloperNews(package));
 
         protected override bool CanExecute
           => PackageClass.GeneralOptions.DeveloperNewsEnabled;

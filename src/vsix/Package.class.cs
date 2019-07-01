@@ -40,7 +40,7 @@ namespace DeveloperNews
         protected override async Tasks.Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
             await base.InitializeAsync(cancellationToken, progress);
-            await DeveloperNewsCommand.InstantiateAsync(this);
+            await ViewDeveloperNews.InstantiateAsync(this);
 
             //await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
         }
