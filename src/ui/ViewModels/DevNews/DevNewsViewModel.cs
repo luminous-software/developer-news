@@ -1,13 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+
 using Luminous.Code.VisualStudio.Packages;
 
 namespace DeveloperNews.UI.ViewModels.DevNews
 {
     using Core.Interfaces;
+
     using Options.Pages;
 
     public class DevNewsViewModel : ViewModelBase
@@ -71,7 +74,7 @@ namespace DeveloperNews.UI.ViewModels.DevNews
             this.dataService = dataService;
             this.browserService = browserService;
 
-            RefreshCommand = new RelayCommand(async () => await ExecuteRefreshAsync().ConfigureAwait(false), CanExecuteRefresh);
+            RefreshCommand = new RelayCommand(() => ExecuteRefreshAsync().ConfigureAwait(false), CanExecuteRefresh);
             ViewMoreCommand = new RelayCommand<string>((link) => ExecuteViewMore(link), CanExecuteViewMore);
         }
 
