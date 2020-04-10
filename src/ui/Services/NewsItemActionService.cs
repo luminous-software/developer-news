@@ -1,7 +1,7 @@
 ﻿namespace DeveloperNews.UI.Services
 {
-    using Core.Interfaces;
     using Interfaces;
+
     using ViewModels;
 
     public class NewsItemActionService : INewsItemActionService
