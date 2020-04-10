@@ -1,0 +1,249 @@
+﻿<UserControl
+    x:Class="DeveloperNews.UI.Views.NewsControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:DeveloperNews.UI.ViewModels"
+    xmlns:vsshell="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
+    Name="DeveloperNewsToolWindow"
+    d:DesignHeight="600"
+    d:DesignWidth="300"
+    Background="{DynamicResource {x:Static vsshell:VsBrushes.WindowKey}}"
+    Foreground="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}"
+    mc:Ignorable="d"
+    >
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/DeveloperNews.UI;component/Resources/Brushes.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/DeveloperNews.UI;component/Resources/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <viewmodels:ViewModelLocator x:Key="ViewModelLocator" />
+
+            <Style TargetType="TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}" />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="Background" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}" />
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}" />
+            </Style>
+
+            <Style TargetType="ToolBar">
+                <Setter Property="Background" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}" />
+            </Style>
+
+            <Style TargetType="ListView">
+                <Setter Property="Background" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}" />
+                <Setter Property="Margin" Value="5px,0" />
+                <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+            </Style>
+
+            <Style
+            x:Key="ItemStyle"
+            TargetType="DockPanel"
+            >
+                <Setter Property="Margin" Value="5px" />
+            </Style>
+
+            <Style
+            x:Key="TitleStyle"
+            TargetType="TextBlock"
+            >
+                <Setter Property="FontFamily" Value="Segoe WP Semilight" />
+                <Setter Property="Foreground" Value="#7AC0FF" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Margin" Value="0,0,0,2px" />
+                <Setter Property="TextTrimming" Value="None" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+            </Style>
+
+            <Style
+            x:Key="DescriptionStyle"
+            TargetType="TextBlock"
+            >
+                <Setter Property="FontSize" Value="10" />
+                <Setter Property="FontFamily" Value="Segoe WP Semilight" />
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}" />
+                <Setter Property="MaxHeight" Value="40" />
+                <Setter Property="TextTrimming" Value="WordEllipsis" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+            </Style>
+
+            <Style
+            x:Key="DatePanelStyle"
+            TargetType="StackPanel"
+            >
+                <Setter Property="Margin" Value="0,2px,0,0" />
+                <Setter Property="Orientation" Value="Horizontal" />
+            </Style>
+
+            <Style
+            x:Key="NewStyle"
+            TargetType="TextBlock"
+            >
+                <Setter Property="FontFamily" Value="Segoe WP Semilight" />
+                <Setter Property="FontSize" Value="9" />
+                <Setter Property="Foreground" Value="Orange" />
+                <Setter Property="Visibility" Value="Collapsed" />
+            </Style>
+
+            <Style
+            x:Key="DateStyle"
+            TargetType="TextBlock"
+            >
+                <Setter Property="FontFamily" Value="Segoe WP Semilight" />
+                <Setter Property="FontSize" Value="9" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}" />
+            </Style>
+
+            <DataTemplate DataType="{x:Type viewmodels:NewsItemViewModel}">
+                <DockPanel Style="{StaticResource ItemStyle}">
+                    <TextBlock x:Name="Title"
+                    DockPanel.Dock="Top"
+                    Style="{StaticResource TitleStyle}"
+                    Text="{Binding Title}"
+                    />
+
+                    <TextBlock x:Name="Description"
+                    DockPanel.Dock="Top"
+                    Style="{StaticResource DescriptionStyle}"
+                    Text="{Binding Description}"
+                    />
+
+                    <StackPanel x:Name="DatePanelStyle"
+                    DockPanel.Dock="Top"
+                    Style="{StaticResource DatePanelStyle}"
+                    >
+                        <TextBlock x:Name="New"
+                        Style="{StaticResource NewStyle}"
+                        Text="{Binding New}"
+                        />
+
+                        <TextBlock x:Name="Date"
+                        Style="{StaticResource DateStyle}"
+                        Text="{Binding PublishDate, StringFormat='dddd, d MMMM yyyy'}"
+                        />
+                    </StackPanel>
+                </DockPanel>
+            </DataTemplate>
+
+            <Style
+            x:Key="ViewMoreTextBlockStyle"
+            TargetType="TextBlock"
+            >
+                <Setter Property="FontFamily" Value="Segoe WP Semilight" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="FontWeight" Value="Normal" />
+                <Setter Property="Height" Value="25" />
+                <Setter Property="Margin" Value="15,15,15,20" />
+                <Setter Property="TextAlignment" Value="Center" />
+            </Style>
+
+            <Style
+            x:Key="ViewMoreLinkStyle"
+            TargetType="Hyperlink"
+            >
+                <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                <Setter Property="Foreground" Value="#7AC0FF" />
+                <Setter Property="TextBlock.TextDecorations" Value="{x:Null}" />
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="FontWeight" Value="DemiBold" />
+                        <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style
+            x:Key="ViewMoreTextStyle"
+            TargetType="TextBlock"
+            >
+                <Setter Property="TextAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <DockPanel x:Name="LayoutRoot"
+        LastChildFill="True"
+        >
+        <ItemsControl x:Name="Commands"
+            DockPanel.Dock="Bottom"
+            Style="{StaticResource ColumnCommandsStyle}"
+            />
+
+        <ListView x:Name="NewsItemsListView"
+            ItemContainerStyle="{StaticResource ColumnListItemContainerStyle}"
+            ItemsSource="{Binding Items}"
+            Style="{StaticResource ColumnListStyle}"
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Button
+                        Command="{Binding ClickCommand}"
+                        Style="{StaticResource ColumnListItemStyle}"
+                        >
+                        <DockPanel x:Name="NewsItemContainer"
+                            Margin="0,0,0,5"
+                            >
+                            <TextBlock x:Name="Title"
+                                Margin="0,0,0,2"
+                                DockPanel.Dock="Top"
+                                FontFamily="Segoe WP Semilight"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource ItemNameBrush}"
+                                Text="{Binding Title}"
+                                TextTrimming="WordEllipsis"
+                                TextWrapping="NoWrap"
+                                />
+
+                            <TextBlock x:Name="Description"
+                                MaxHeight="45"
+                                DockPanel.Dock="Top"
+                                FontFamily="Segoe WP Semilight"
+                                FontSize="12"
+                                Foreground="{DynamicResource ItemDescriptionBrush}"
+                                Text="{Binding Description}"
+                                TextTrimming="WordEllipsis"
+                                TextWrapping="Wrap"
+                                />
+
+                            <StackPanel x:Name="DatePanelStyle"
+                                Margin="0,4,0,0"
+                                DockPanel.Dock="Top"
+                                Orientation="Horizontal"
+                                >
+                                <TextBlock x:Name="New"
+                                    FontFamily="Segoe WP Semilight"
+                                    FontSize="10"
+                                    Foreground="Orange"
+                                    Text="{Binding New}"
+                                    Visibility="Collapsed"
+                                    />
+
+                                <TextBlock x:Name="Date"
+                                    FontFamily="Segoe WP Semilight"
+                                    FontSize="11"
+                                    FontWeight="Medium"
+                                    Foreground="{DynamicResource ItemDateBrush}"
+                                    Text="{Binding Date, StringFormat='dddd, d MMMM yyyy'}"
+                                    />
+                            </StackPanel>
+                        </DockPanel>
+                    </Button>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </DockPanel>
+</UserControl>
+
+<!--  d:DataContext="{d:DesignInstance Type=local:MyViewModel, IsDesignTimeCreatable=True}"  -->
