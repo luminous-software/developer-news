@@ -1,35 +1,40 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace DeveloperNews.UI.Design
 {
-    using Core.Interfaces;
-    using Core.Models;
-    using System;
-    using System.Threading.Tasks;
+    using Interfaces;
 
-    internal class DesignDataService : IDataService
+    using ViewModels;
+
+
+    internal class DesignDataService : INewsItemDataService
     {
-        public Task<List<FeedItem>> GetItemsAsync(string url, int count)
+        public Task<ObservableCollection<NewsItemViewModel>> GetItemsAsync(string url, int count)
         {
-            var items = new List<FeedItem>
+            var items = new ObservableCollection<NewsItemViewModel>
             {
-                new FeedItem
+                new NewsItemViewModel
                 {
                     Title = "Normal Title",
                     Description = "A normaldescription",
                     Link = "",
-                    PublishDate = DateTime.Now
+                    Date = DateTime.Now
                 },
-                new FeedItem
+                new NewsItemViewModel
                 {
                     Title = "A Very Long Title To Test The 'WrapWithOverFlow' Setting of the 'TitleStyle' Style",
                     Description = "A normaldescription",
                     Link = "",
-                    PublishDate = DateTime.Now
+                    Date = DateTime.Now
                 }
             };
 
             return Task.FromResult(items);
         }
+
+        public Task<ObservableCollection<NewsItemViewModel>> GetItemsAsync(string url)
+            => throw new NotImplementedException();
     }
 }
