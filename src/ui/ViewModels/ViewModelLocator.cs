@@ -22,6 +22,9 @@ namespace DeveloperNews.UI.ViewModels
             RegisterViewModels(container);
         }
 
+        public static NewsItemsViewModel NewsItemsViewModel
+           => ServiceLocator.Current.GetInstance<NewsItemsViewModel>();
+
         private void RegisterServices(SimpleIoc container)
         {
             container.Register<IDialogService, DialogService>();
