@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="DeveloperNews.UI.Views.NewsControl"
+    x:Class="DeveloperNews.UI.Views.NewsItemsView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -20,8 +20,6 @@
                 <ResourceDictionary Source="pack://application:,,,/DeveloperNews.UI;component/Resources/Brushes.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/DeveloperNews.UI;component/Resources/Styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-
-            <viewmodels:ViewModelLocator x:Key="ViewModelLocator" />
 
             <Style TargetType="TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}" />

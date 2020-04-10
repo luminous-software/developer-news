@@ -74,8 +74,8 @@
     <Compile Include="ViewModels\NewsItemViewModel.cs" />
     <Compile Include="ViewModels\NewsItemsViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
-    <Compile Include="Views\NewsControl.xaml.cs">
-      <DependentUpon>NewsControl.xaml</DependentUpon>
+    <Compile Include="Views\NewsItemsView.xaml.cs">
+      <DependentUpon>NewsItemsView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Views\NewsWindow.cs" />
@@ -100,7 +100,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\NewsControl.xaml">
+    <Page Include="Views\NewsItemsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
