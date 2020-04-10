@@ -1,111 +1,63 @@
 ﻿using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Messaging;
 
-using Luminous.Code.VisualStudio.Packages;
+using Microsoft.VisualStudio.Shell;
 
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+
 
 namespace DeveloperNews.UI.ViewModels
 {
-    using Core.Interfaces;
-
     using Interfaces;
 
-    using Options.Pages;
+    using Observables;
 
     public class NewsItemsViewModel : ViewModelBase
     {
-        private readonly INewsItemDataService dataService;
-        private readonly IBrowserService browserService;
-        private List<NewsItemViewModel> feedItems;
-        private NewsItemViewModel selectedItem;
-        private int selectedIndex;
-        private static GeneralDialogPage generalOptions;
+        private const string DEV_NEWS_FEED_URL = "https://vsstartpage.blob.core.windows.net/news/vs"; //TODO: move DEV_NEWS_FEED_URL to options
+        private ObservableCollection<NewsItemViewModel> items = new ObservableCollection<NewsItemViewModel>();
+        private int Count = 0;  //TODO: move Count to options
 
-        public NewsItemsViewModel(INewsItemDataService dataService, IBrowserService browserService)
+        public NewsItemsViewModel(INewsItemDataService dataService, INewsItemActionService actionService, INewsItemCommandService commandService)
         {
-            this.dataService = dataService;
-            this.browserService = browserService;
+            DataService = dataService;
+            ActionService = actionService;
+            CommandService = commandService;
 
-            RefreshCommand = new RelayCommand(() => ExecuteRefreshAsync().ConfigureAwait(false), CanExecuteRefresh);
-            ViewMoreCommand = new RelayCommand<string>((link) => ExecuteViewMore(link), CanExecuteViewMore);
+            GetCommands();
+            Refresh();
+
+            MessengerInstance.Register<NotificationMessage<NewsItemViewModel>>(this,
+                (message) => ActionService.DoAction(message.Content));
         }
 
-        public static GeneralDialogPage GeneralOptions
-            => generalOptions ?? (generalOptions = AsyncPackageBase.GetDialogPage<GeneralDialogPage>());
+        public INewsItemDataService DataService { get; }
 
-        public RelayCommand RefreshCommand { get; private set; }
+        public INewsItemActionService ActionService { get; }
 
-        public RelayCommand<string> ViewMoreCommand { get; private set; }
+        public INewsItemCommandService CommandService { get; }
 
-        public string DisplayName { get; internal set; }
-
-        public string NewName { get; internal set; }
-
-        public List<NewsItemViewModel> FeedItems
+        public ObservableCollection<NewsItemViewModel> Items
         {
-            get => feedItems;
-            set => Set(ref feedItems, value);
+            get => items;
+            set => Set(ref items, value);
         }
 
-        public NewsItemViewModel SelectedItem
-        {
-            get => selectedItem;
-            set
-            {
-                Set(ref selectedItem, value);
+        public ObservableCommandList Commands { get; set; }
 
-                if (value != null)
-                {
-                    browserService.OpenUrl(selectedItem.Link, GeneralOptions.OpenLinksInVS);
-                    //SelectedItem = null;
-                    SelectedIndex = -1;
-                }
-            }
-        }
+        private void GetCommands()
+            => Commands = CommandService.GetCommands(/*MoreNews,*/ Refresh);
 
-        public int SelectedIndex
-        {
-            get => selectedIndex;
-            set => Set(ref selectedIndex, value);
-        }
+        private void MoreNews()
+        { }
 
-        public string DevNewsUrl { get; internal set; }
+        public void Refresh()
+             => ThreadHelper.JoinableTaskFactory.RunAsync(async ()
+                 =>
+                 {
+                     Items.Clear();
 
-        public int Count { get; internal set; }
-
-        public string ViewMore { get; internal set; }
-
-        public string ViewMoreUrl { get; internal set; }
-
-        public bool CanExecuteRefresh => true;
-
-        public async Task ExecuteRefreshAsync()
-            => await LoadItemsAsync();
-
-        public bool CanExecuteViewMore => true;
-
-        public void ExecuteViewMore(string link)
-            => browserService.OpenUrl(link, GeneralOptions.OpenLinksInVS);
-
-        public async Task LoadItemsAsync()
-        {
-            var items = await dataService.GetItemsAsync(DevNewsUrl, Count);
-
-            FeedItems =
-            (
-                from item in items
-                select new NewsItemViewModel
-                {
-                    Title = item.Title,
-                    Description = item.Description,
-                    Link = item.Link,
-                    New = NewName,
-                    Date = item.Date
-                }
-            ).ToList();
-        }
+                     return Items = await DataService.GetItemsAsync(DEV_NEWS_FEED_URL, Count);
+                 });
     }
 }
