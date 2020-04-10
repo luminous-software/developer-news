@@ -51,7 +51,6 @@
       <Link>source.extension.cs</Link>
     </Compile>
     <Compile Include="Constants\Guids.cs" />
-    <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="Interfaces\IDataItem.cs" />
     <Compile Include="Interfaces\IDateTimeService.cs" />
     <Compile Include="Interfaces\IDialogService.cs" />
@@ -70,7 +69,6 @@
     <Compile Include="Services\NewsItemDataService.cs" />
     <Compile Include="Services\VisualStudioService.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
-    <Compile Include="ViewModels\NewsControlViewModel.cs" />
     <Compile Include="ViewModels\NewsItemViewModel.cs" />
     <Compile Include="ViewModels\NewsItemsViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
@@ -78,7 +76,7 @@
       <DependentUpon>NewsItemsView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\NewsWindow.cs" />
+    <Compile Include="Views\NewsItemsWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Luminous.Code.VisualStudio">

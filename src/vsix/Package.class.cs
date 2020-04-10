@@ -1,20 +1,26 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using System.Threading;
-using Luminous.Code.Extensions.ExceptionExtensions; //TODO: remove
+﻿using Luminous.Code.Extensions.ExceptionExtensions; //TODO: remove
 using Luminous.Code.VisualStudio.Commands; //TODO: remove
 using Luminous.Code.VisualStudio.Packages;
+
 using Microsoft.VisualStudio; //TODO: remove
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop; //TODO: remove Microsoft.VisualStudio.Shell.Interop
+
+using System;
+using System.Runtime.InteropServices;
+using System.Threading;
+
 using Tasks = System.Threading.Tasks;
 
 namespace DeveloperNews
 {
     using Commands;
+
     using Options.Pages;
+
     using UI.ViewModels;
     using UI.Views.DevNews;
+
     using static Core.Constants.StringConstants;
     using static PackageGuids;
     using static Vsix;
@@ -25,7 +31,7 @@ namespace DeveloperNews
     [Guid(PackageString)]
 
     [ProvideOptionPage(typeof(GeneralDialogPage), Name, General, 0, 0, supportsAutomation: true)]
-    [ProvideToolWindow(typeof(DeveloperNewsWindow), Style = VsDockStyle.Tabbed, Window = "E13EEDEF-B531-4afe-9725-28A69FA4F896", MultiInstances = false)]
+    [ProvideToolWindow(typeof(NewsItemsWindow), Style = VsDockStyle.Tabbed, Window = "E13EEDEF-B531-4afe-9725-28A69FA4F896", MultiInstances = false)]
 
     public sealed class PackageClass : AsyncPackageBase
     {

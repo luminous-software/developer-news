@@ -9,13 +9,13 @@ namespace DeveloperNews.UI.Views.DevNews
     using static UI.Constants.Guids;
 
     [Guid(DeveloperNewsPaneGuidString)]
-    public class DeveloperNewsWindow : ToolWindowPane
+    public class NewsItemsWindow : ToolWindowPane
     {
-        public DeveloperNewsWindow() : base(null)
+        public NewsItemsWindow() : base(null)
         {
             Caption = "Developer News";
             BitmapImageMoniker = KnownMonikers.ConditionalRuleIfThen;
-            Content = new NewsControl();
+            Content = new NewsItemsView();
         }
     }
 }
