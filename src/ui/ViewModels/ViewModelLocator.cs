@@ -1,12 +1,12 @@
 ﻿using CommonServiceLocator;
-using GalaSoft.MvvmLight;
+
 using GalaSoft.MvvmLight.Ioc;
 
 namespace DeveloperNews.UI.ViewModels
 {
-    using Core.Interfaces;
-    using Design;
-    using DevNews;
+
+    using Interfaces;
+
     using Services;
 
     public class ViewModelLocator
@@ -17,17 +17,24 @@ namespace DeveloperNews.UI.ViewModels
 
             ServiceLocator.SetLocatorProvider(() => container);
 
-            if (ViewModelBase.IsInDesignModeStatic)
-            {
-                container.Register<IDataService, DesignDataService>();
-            }
-            else
-            {
-                container.Register<IDataService, RssDataService>();
-            }
 
-            container.Register<IBrowserService, VisualStudioBrowserService>();
-            container.Register<DevNewsViewModel>();
+            RegisterServices(container);
+            RegisterViewModels(container);
         }
+
+        private void RegisterServices(SimpleIoc container)
+        {
+            container.Register<IDialogService, DialogService>();
+            container.Register<IVisualStudioService, VisualStudioService>();
+
+            container.Register<IDateTimeService, DateTimeService>();
+
+            container.Register<INewsItemDataService, NewsItemDataService>();
+            container.Register<INewsItemActionService, NewsItemActionService>();
+            container.Register<INewsItemCommandService, NewsItemCommandService>();
+        }
+
+        private void RegisterViewModels(SimpleIoc container)
+            => container.Register<NewsItemsViewModel>();
     }
 }
