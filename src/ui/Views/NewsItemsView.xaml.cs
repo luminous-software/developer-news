@@ -10,8 +10,6 @@ namespace DeveloperNews.UI.Views
         {
             var viewModel = ViewModelLocator.NewsItemsViewModel;
 
-            //viewModel.ExecuteRefresh();
-
             InitializeComponent();
 
             DataContext = viewModel;

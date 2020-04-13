@@ -32,8 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xaml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\vsix\Properties\GlobalSuppressions.cs">
@@ -43,7 +45,10 @@
       <Link>source.extension.cs</Link>
     </Compile>
     <Compile Include="Constants\StringConstants.cs" />
+    <Compile Include="MarkupExtensions\MultValueConverterMarkupExtension.cs" />
+    <Compile Include="MarkupExtensions\ValueConverterMarkupExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
