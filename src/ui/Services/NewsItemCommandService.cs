@@ -1,23 +1,20 @@
-﻿using System;
-using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight.Command;
+
+using System;
 
 namespace DeveloperNews.UI.Services
 {
     using Interfaces;
+
     using Observables;
+
     using ViewModels;
 
     public class NewsItemCommandService : INewsItemCommandService
     {
-        public ObservableCommandList GetCommands(/*Action moreNews, */Action refresh)
+        public ObservableCommandList GetCommands(Action refresh)
             => new ObservableCommandList
             {
-                //new CommandViewModel
-                //{
-                //    Name = "More News",
-                //    Command = new RelayCommand(moreNews, true),
-                //    IsVisible = false
-                //},
                 new CommandViewModel
                 {
                     Name = "Refresh",
