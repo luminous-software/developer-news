@@ -51,6 +51,7 @@
       <Link>source.extension.cs</Link>
     </Compile>
     <Compile Include="Constants\Guids.cs" />
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Interfaces\IDataItem.cs" />
     <Compile Include="Interfaces\IDateTimeService.cs" />
     <Compile Include="Interfaces\IDialogService.cs" />

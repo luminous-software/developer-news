@@ -15,8 +15,8 @@ namespace DeveloperNews.UI.ViewModels
     public class NewsItemsViewModel : ViewModelBase
     {
         private const string DEV_NEWS_FEED_URL = "https://vsstartpage.blob.core.windows.net/news/vs"; //TODO: move DEV_NEWS_FEED_URL to options
+        private int count = 0;  //TODO: move Count to options
         private ObservableCollection<NewsItemViewModel> items = new ObservableCollection<NewsItemViewModel>();
-        private int Count = 0;  //TODO: move Count to options
 
         public NewsItemsViewModel(INewsItemDataService dataService, INewsItemActionService actionService, INewsItemCommandService commandService)
         {
@@ -46,10 +46,7 @@ namespace DeveloperNews.UI.ViewModels
         public ObservableCommandList Commands { get; set; }
 
         private void GetCommands()
-            => Commands = CommandService.GetCommands(/*MoreNews,*/ Refresh);
-
-        private void MoreNews()
-        { }
+            => Commands = CommandService.GetCommands(Refresh);
 
         public void Refresh()
              => ThreadHelper.JoinableTaskFactory.RunAsync(async ()
@@ -57,7 +54,7 @@ namespace DeveloperNews.UI.ViewModels
                  {
                      Items.Clear();
 
-                     return Items = await DataService.GetItemsAsync(DEV_NEWS_FEED_URL, Count);
+                     return Items = await DataService.GetItemsAsync(DEV_NEWS_FEED_URL, count);
                  });
     }
 }

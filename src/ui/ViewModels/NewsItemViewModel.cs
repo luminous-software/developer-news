@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 
 using System;
@@ -8,6 +9,9 @@ namespace DeveloperNews.UI.ViewModels
 {
     public class NewsItemViewModel : ViewModelBase
     {
+        public NewsItemViewModel()
+            => ClickCommand = new RelayCommand(ExecuteClick, () => !string.IsNullOrEmpty(Link));
+
         public string Title { get; set; }
 
         public string Description { get; set; }

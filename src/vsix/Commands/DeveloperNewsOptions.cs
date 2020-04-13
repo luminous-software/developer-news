@@ -1,11 +1,14 @@
 ﻿using Luminous.Code.VisualStudio.Commands;
 using Luminous.Code.VisualStudio.Packages;
+
 using Microsoft.VisualStudio.Shell;
+
 using Tasks = System.Threading.Tasks;
 
 namespace DeveloperNews.Commands
 {
     using Options.Pages;
+
 
     internal sealed class DeveloperNewsOptions : DeveloperNewsCommand
     {

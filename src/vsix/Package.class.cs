@@ -38,7 +38,7 @@ namespace DeveloperNews
         private static GeneralDialogPage generalOptions;
 
         public static GeneralDialogPage GeneralOptions
-                    => generalOptions ?? (generalOptions = GetDialogPage<GeneralDialogPage>());
+            => generalOptions ?? (generalOptions = GetDialogPage<GeneralDialogPage>());
 
         public PackageClass() : base(PackageCommandSet, Name, Description)
             => _ = new ViewModelLocator();
