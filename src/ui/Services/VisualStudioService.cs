@@ -1,11 +1,17 @@
-﻿using System.Windows;
-using System.Diagnostics;
-using EnvDTE;
+﻿using EnvDTE;
+
 using EnvDTE80;
+
 using Luminous.Code.VisualStudio.Packages;
+
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
-using Diagnostics = System.Diagnostics;
+
+using System;
+using System.Diagnostics;
+using System.Windows;
+
+using Diagnostics = System.Diagnostics; //to avoid an ambiguous reference with EnvDTE.Process
 
 namespace DeveloperNews.UI.Services
 {
@@ -40,7 +46,7 @@ namespace DeveloperNews.UI.Services
         public void ExecuteCommand(string action)
             => Dte.ExecuteCommand(action);
 
-        public void ExecuteCommand(string action, string args= null)
+        public void ExecuteCommand(string action, string args = null)
             => Dte.ExecuteCommand(action, args);
 
         public void ShowMessage(string message)
@@ -54,12 +60,23 @@ namespace DeveloperNews.UI.Services
 
                 if (internalBrowser == true)
                 {
-                    BrowsingService.Navigate(url, FORCE_NEW_WINDOW, out var ppFrame);
+                    try
+
+                    {
+
+                        BrowsingService.Navigate(url, FORCE_NEW_WINDOW, out var ppFrame);
+                    }
+
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Can't open window", Vsix.Name, MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
                 else
                 {
                     StartInfo.FileName = url;
-                    Diagnostics.Process.Start(StartInfo);
+                    using (Diagnostics.Process.Start(StartInfo))
+                    { }
                 }
             }
             catch
@@ -70,13 +87,6 @@ namespace DeveloperNews.UI.Services
 
         public void OpenFolder(string path = "")
             => Dte?.ExecuteCommand(FILE_OPEN_FOLDER, path);
-
-        //public void OpenSolution(string path = null)
-        //{
-        //    ThreadHelper.ThrowIfNotOnUIThread();
-
-        //    Dte?.Solution.Open(path);
-        //}
 
         public void OpenProject(string path = "")
             => Dte?.ExecuteCommand(FILE_OPEN_PROJECT, path);
