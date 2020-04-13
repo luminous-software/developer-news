@@ -1,5 +1,8 @@
 ## Public Releases
 
+### v1.2 - 2020-04-10
+- use selected theme's colors/font sizes (as in Start Page+)
+
 ### v1.1 - 2019-07-01
 - added option to open links in default browser
 
