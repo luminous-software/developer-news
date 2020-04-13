@@ -221,8 +221,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#start-page-is-back-for-now" title="Start Page Is Back (for now)" class="md-nav__link">
-    Start Page Is Back (for now)
+  <a href="#start-page-is-back-or-is-it" title="Start Page Is Back (or is it?)" class="md-nav__link">
+    Start Page Is Back (or is it?)
   </a>
   
 </li>
@@ -351,8 +351,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#start-page-is-back-for-now" title="Start Page Is Back (for now)" class="md-nav__link">
-    Start Page Is Back (for now)
+  <a href="#start-page-is-back-or-is-it" title="Start Page Is Back (or is it?)" class="md-nav__link">
+    Start Page Is Back (or is it?)
   </a>
   
 </li>
@@ -412,29 +412,42 @@ in Visual Studio 2019 anymore.</p>
 <p>Increduously, Microsoft's response was to simply add a watered-down version of the old <em>Developer News</em> to the
 <a href="https://developercommunity.visualstudio.com/comments/469066/view.html">right-hand column of the Visual Studio installer</a>.</p>
 <p>But nobody wants to have to open the installer just to view their morning developer news.
-They want to see it as soon as they open Visual Studio, as they had done for years.</p>
+They want to see it as soon as they open Visual Studio, as they had done for years. And the installer only displays <strong>three</strong> news items,
+with a link to click on to <em>see more online</em>. Except clicking on the link doesn't show you the rest of the developer news feed, 
+instead it opens a browser window to the Visual Studio Blog.</p>
+<p>It was a very poor <em>Developer News</em> replacement!</p>
 <p><img alt="VS Installer" src="./assets/images/installer.png" /></p>
 <h3 id="forum-announcement">Forum Announcement<a class="headerlink" href="#forum-announcement" title="Permanent link">&para;</a></h3>
-<p>I <a href="https://developercommunity.visualstudio.com/comments/513534/view.html">wrote a post in the Developer Community Forum</a> to announce that
+<p>Fed up with the situation, I <a href="https://developercommunity.visualstudio.com/comments/513534/view.html">wrote a post in the Developer Community Forum</a> to announce that
 "<em>I've decided to write a little extension to add a tool window to display the missing Developer News,
 either as a stop-gap until MS decide to see sense, or to use instead for the future going forward if they don't</em>".</p>
-<h3 id="start-page-is-back-for-now">Start Page Is Back (for now)<a class="headerlink" href="#start-page-is-back-for-now" title="Permanent link">&para;</a></h3>
-<p>Another developer, <a href="https://developercommunity.visualstudio.com/users/863/047cb52a-d0ac-4677-9337-118da1c525e4.html">Jan Kučera</a>, released his <a href="https://marketplace.visualstudio.com/items?itemName=JanKucera.StartPageOnStartup">Start Page on Startup</a>
-extension to restore access to the <em>VS 2017 Start Page</em>. The page's code still existed in VS 2019,
-but the page had been "hidden" by Microsoft.</p>
-<p>The original <em>Developer News</em> feed was of course also restored, but it was broken and there was no UI for us to be able to "fix" it.
-However, after a few tweaks to the extension Jan had the feed up and running again.</p>
-<p>The only problem is that Jan's extension relies on displaying the <em>Start Page</em> that has been "hidden" in VS 2019.
-This page's code, as a <a href="https://developercommunity.visualstudio.com/comments/513807/view.html">Microsoft employee reminded us</a>, "<em>is subject to <strong>vanish at anytime</strong></em>".</p>
+<h3 id="start-page-is-back-or-is-it">Start Page Is Back (or is it?)<a class="headerlink" href="#start-page-is-back-or-is-it" title="Permanent link">&para;</a></h3>
+<p>Another developer, <a href="https://developercommunity.visualstudio.com/users/863/047cb52a-d0ac-4677-9337-118da1c525e4.html">Jan Kučera</a>, released an extension called  <a href="https://marketplace.visualstudio.com/items?itemName=JanKucera.StartPageOnStartup">Start Page on Startup</a>
+to restore access to the old VS 2017 <em>Start Page</em>. The page's code still existed in VS 2019,
+but Microsoft simply "hid" access to it in the settings UI.</p>
+<p>This of course therefore also restored <em>Developer News</em>, but at first it was "broken" and there was no UI for us to be able to "fix" it.
+However, after a few tweaks to the extension Jan had the news feed up and running again.</p>
+<p>The only problem is that Jan's extension, as well as a few other people's extensions, 
+relied on simply displaying the "hidden" VS 2017 <em>Start Page</em>.</p>
+<p>After my announcement in the forum, a <a href="https://developercommunity.visualstudio.com/comments/513807/view.html">Microsoft employee ominously pointed out</a>,
+that this code "<em>is subject to <strong>vanish at anytime</strong></em>".
+And Microsoft did in fact rip the code out of VS 2019 in a later update, 
+in spite of a <strong>large</strong> number of developers either <strong><em>demanding</em></strong> or <strong><em>begging</em></strong> for it to be returned. </p>
+<p>So,</p>
+<ul>
+<li>first we had access to the old VS 2017 Start Page (when VS 2019 was released)</li>
+<li>when Microsoft found people were still using the old <em>Start Page</em> they "hid" it</li>
+<li>then Jan's extension brought it back (it could also be displayed manually if you knew the trick)</li>
+<li>then Microsoft ripped the _Start Page_code out of VS 2019 all together so it could no longer be displayed</li>
+<li>so any extensions that relied on the code for the old start page just stopped working</li>
+</ul>
+<p>My next extension, called <a href="https://luminous-software.solutions/start-page-plus">Start Page+</a>, was written to create a <strong>new</strong> start page <strong>from scratch</strong>,
+with all of my own code. This meant that Microsoft had no control over and could not simply take it away from us.</p>
+<p>My hope was to combine the best from the <strong><em>non-modal</em></strong> VS 2017 <em>Start <strong>Page</strong></em> (including <em>Developer News</em>)
+with the layout of the much hated <strong><em>modal</em></strong> VS 2019 _Start <strong>Window</strong>, so hopefully everyone would feel at home.</p>
 <h2 id="developer-news-is-back">Developer News Is Back!<a class="headerlink" href="#developer-news-is-back" title="Permanent link">&para;</a></h2>
 <p>The <a href="https://marketplace.visualstudio.com/items?itemName=YannDuran.DeveloperNews">Developer News</a> extension adds a new <strong>dockable tool window</strong> to display the same developer news feed
-that VS 2017's <em>Start Page</em> used to provide.</p>
-<p>However it doesn't actually rely on the RSS feed control that's embedded in VS 2019's hidden <em>Start Page</em> implementation.
-So when Microsoft removes the code for the <em>Start Page</em>, and I do believe that they'll remove it at some point,
-any extensions that rely on that code will cease to function.</p>
-<p>Unless of course they decide to give us back the <em>Start Page</em>
-as so many of us have been asking for in <a href="https://developercommunity.visualstudio.com/idea/434456/start-page-please-give-it-back.html">Start Page: Please give it back!</a></p>
-<p><em>Developer News</em> has been written <strong>from the ground up</strong> and will therefore <strong>not</strong> be affected.</p>
+that VS 2017's <em>Start Page</em> used to provide, without relying on any Microsoft controlled code.</p>
 <p>To open the new <em>Developer News</em> window:</p>
 <ul>
 <li>select <strong>View</strong> | <strong>Developer News</strong></li>
@@ -443,10 +456,10 @@ as so many of us have been asking for in <a href="https://developercommunity.vis
 <p>The old <em>Developer News</em> feed is just the <strong>first</strong> developer-focused feed to be added to the new <em>Developer News</em> window,
 with <strong>more feeds to come</strong> in the near future (check out <a href="https://luminous-software.solutions/developer-news/roadmap">the roadmap</a> for more details).</p>
 <h2 id="support-the-project">Support the Project<a class="headerlink" href="#support-the-project" title="Permanent link">&para;</a></h2>
-<p>If <em>Extensibility Logs</em> has saved you time and hassle, please come back and show your support:</p>
+<p>If <em>Developer News</em> has saved you time and hassle, please come back and show your support:</p>
 <ul>
-<li>you could <a href="https://marketplace.visualstudio.com/items?itemName=YannDuran.DeveloperNews#review-details"><strong><em>rate <em>Extensibility Logs</em></em></strong></a> (only takes a couple of seconds)</li>
-<li>or <a href="https://marketplace.visualstudio.com/items?itemName=YannDuran.DeveloperNews#review-details"><strong><em>review <em>Extensibility Logs</em></em></strong></a> (help others benefit from your experience)</li>
+<li>you could <a href="https://marketplace.visualstudio.com/items?itemName=YannDuran.DeveloperNews#review-details"><strong><em>rate <em>Developer News</em></em></strong></a> (only takes a couple of seconds)</li>
+<li>or <a href="https://marketplace.visualstudio.com/items?itemName=YannDuran.DeveloperNews#review-details"><strong><em>review <em>Developer Newss</em></em></strong></a> (help others benefit from your experience)</li>
 <li>or <a href="https://www.paypal.me/yannduran/5"><strong><em>shout me a coke</em></strong></a> (I don't drink coffee or beer lol)</li>
 </ul>
                 
