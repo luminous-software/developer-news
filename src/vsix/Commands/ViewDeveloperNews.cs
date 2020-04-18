@@ -1,10 +1,14 @@
 ﻿using Luminous.Code.VisualStudio.Commands;
 using Luminous.Code.VisualStudio.Packages;
+
 using Microsoft.VisualStudio.Shell;
+
 using Tasks = System.Threading.Tasks;
 
 namespace DeveloperNews.Commands
 {
+    using Options.Pages;
+
     using UI.Views.DevNews;
 
     internal sealed class ViewDeveloperNews : DeveloperNewsCommand
@@ -17,7 +21,7 @@ namespace DeveloperNews.Commands
             => await InstantiateAsync(new ViewDeveloperNews(package));
 
         protected override bool CanExecute
-          => base.CanExecute && PackageClass.GeneralOptions.EnableDeveloperNews;
+          => base.CanExecute && GeneralOptions.Instance.EnableDeveloperNews;
 
         protected override void OnExecute(OleMenuCommand command)
             => ExecuteCommand()

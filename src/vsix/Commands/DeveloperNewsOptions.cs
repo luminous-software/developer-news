@@ -9,7 +9,6 @@ namespace DeveloperNews.Commands
 {
     using Options.Pages;
 
-
     internal sealed class DeveloperNewsOptions : DeveloperNewsCommand
     {
         private DeveloperNewsOptions(AsyncPackageBase package)
@@ -20,13 +19,13 @@ namespace DeveloperNews.Commands
             => await InstantiateAsync(new DeveloperNewsOptions(package));
 
         protected override bool CanExecute
-          => base.CanExecute && PackageClass.GeneralOptions.EnableDeveloperNewsOptions;
+          => base.CanExecute && GeneralOptions.Instance.EnableDeveloperNewsOptions;
 
         protected override void OnExecute(OleMenuCommand command)
             => ExecuteCommand()
                 .ShowProblem();
 
         private CommandResult ExecuteCommand()
-            => Package?.ShowOptionsPage<GeneralDialogPage>();
+            => Package?.ShowOptionsPage<DialogPageProvider.General>();
     }
 }
