@@ -30,16 +30,11 @@ namespace DeveloperNews
     [InstalledProductRegistration(Name, Description, Version)]
     [Guid(PackageString)]
 
-    [ProvideOptionPage(typeof(GeneralDialogPage), Name, General, 0, 0, supportsAutomation: true)]
+    [ProvideOptionPage(typeof(DialogPageProvider.General), Name, General, 0, 0, supportsAutomation: true)]
     [ProvideToolWindow(typeof(NewsItemsWindow), Style = VsDockStyle.Tabbed, Window = "E13EEDEF-B531-4afe-9725-28A69FA4F896", MultiInstances = false)]
 
     public sealed class PackageClass : AsyncPackageBase
     {
-        private static GeneralDialogPage generalOptions;
-
-        public static GeneralDialogPage GeneralOptions
-            => generalOptions ?? (generalOptions = GetDialogPage<GeneralDialogPage>());
-
         public PackageClass() : base(PackageCommandSet, Name, Description)
             => _ = new ViewModelLocator();
 
