@@ -12,10 +12,10 @@ namespace DeveloperNews.UI.ViewModels
 
     using Observables;
 
+    using Options.Pages;
+
     public class NewsItemsViewModel : ViewModelBase
     {
-        private const string DEV_NEWS_FEED_URL = "https://vsstartpage.blob.core.windows.net/news/vs"; //TODO: move DEV_NEWS_FEED_URL to options
-        private int count = 0;  //TODO: move Count to options
         private ObservableCollection<NewsItemViewModel> items = new ObservableCollection<NewsItemViewModel>();
 
         public NewsItemsViewModel(INewsItemDataService dataService, INewsItemActionService actionService, INewsItemCommandService commandService)
@@ -54,7 +54,9 @@ namespace DeveloperNews.UI.ViewModels
                  {
                      Items.Clear();
 
-                     return Items = await DataService.GetItemsAsync(DEV_NEWS_FEED_URL, count);
+                     var options = await GeneralOptions.GetLiveInstanceAsync();
+
+                     return Items = await DataService.GetItemsAsync(options.FeedUrl, options.ItemsToDisplay);
                  });
     }
 }
