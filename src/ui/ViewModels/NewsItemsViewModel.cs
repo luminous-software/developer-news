@@ -8,21 +8,24 @@ using System.Collections.ObjectModel;
 
 namespace DeveloperNews.UI.ViewModels
 {
-    using Interfaces;
+    using DeveloperNews.UI.Interfaces;
 
     using Observables;
 
     using Options.Pages;
 
+    using static DeveloperNews.Options.Constants.OptionsGuids;
+
     public class NewsItemsViewModel : ViewModelBase
     {
         private ObservableCollection<NewsItemViewModel> items = new ObservableCollection<NewsItemViewModel>();
 
-        public NewsItemsViewModel(INewsItemDataService dataService, INewsItemActionService actionService, INewsItemCommandService commandService)
+        public NewsItemsViewModel(INewsItemDataService dataService, INewsItemActionService actionService, INewsItemCommandService commandService, IVisualStudioService visualStudioService)
         {
             DataService = dataService;
             ActionService = actionService;
             CommandService = commandService;
+            VisualStudioService = visualStudioService;
 
             GetCommands();
             Refresh();
@@ -37,6 +40,8 @@ namespace DeveloperNews.UI.ViewModels
 
         public INewsItemCommandService CommandService { get; }
 
+        public IVisualStudioService VisualStudioService { get; }
+
         public ObservableCollection<NewsItemViewModel> Items
         {
             get => items;
@@ -46,7 +51,7 @@ namespace DeveloperNews.UI.ViewModels
         public ObservableCommandList Commands { get; set; }
 
         private void GetCommands()
-            => Commands = CommandService.GetCommands(Refresh);
+            => Commands = CommandService.GetCommands(Refresh, ShowOptions);
 
         public void Refresh()
              => ThreadHelper.JoinableTaskFactory.RunAsync(async ()
@@ -58,5 +63,8 @@ namespace DeveloperNews.UI.ViewModels
 
                      return Items = await DataService.GetItemsAsync(options.FeedUrl, options.ItemsToDisplay);
                  });
+
+        public void ShowOptions()
+            => VisualStudioService.ShowToolsOptions(GeneralDialogPage);
     }
 }

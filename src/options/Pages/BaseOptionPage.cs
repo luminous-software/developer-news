@@ -2,7 +2,8 @@
 
 namespace Luminous.Code.VisualStudio.Options.Pages
 {
-    public class BaseOptionPage<T> : DialogPage where T : BaseOptionModel<T>, new()
+    public class BaseOptionPage<T> : DialogPage
+        where T : BaseOptionModel<T>, new()
     {
         private readonly BaseOptionModel<T> _model;
 

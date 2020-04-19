@@ -26,26 +26,29 @@ namespace DeveloperNews.UI.Services
         private const string FILE_CLONE_OR_CHECKOUT_CODE = "File.Cloneorcheckoutcode";
         private const uint FORCE_NEW_WINDOW = (uint)__VSWBNAVIGATEFLAGS.VSNWB_ForceNew;
 
-        private static readonly DTE2 dte;
+        private DTE2 dte;
         private IVsWebBrowsingService browsingService;
-        private ProcessStartInfo startInfo;
+        private readonly ProcessStartInfo StartInfo = new ProcessStartInfo
+        {
+            UseShellExecute = true,
+            Verb = VERB_OPEN
+        };
 
-        protected static DTE2 Dte = dte ?? (dte = Package.GetGlobalService(typeof(_DTE)) as DTE2);
 
-        private ProcessStartInfo StartInfo
-            => startInfo
-                ?? (startInfo = new Diagnostics.ProcessStartInfo
-                {
-                    UseShellExecute = true,
-                    Verb = VERB_OPEN
-                });
+        public VisualStudioService()
+        { }
+
+        protected DTE2 Dte
+            => dte ?? (dte = Package.GetGlobalService(typeof(_DTE)) as DTE2);
 
         private IVsWebBrowsingService BrowsingService
             => browsingService ?? (browsingService = AsyncPackageBase.GetGlobalService<SVsWebBrowsingService, IVsWebBrowsingService>());
 
+        //TODO: add error handling in ExecuteCommand(string action)
         public void ExecuteCommand(string action)
             => Dte.ExecuteCommand(action);
 
+        //TODO: add error handling in ExecuteCommand(string action, string args = null)
         public void ExecuteCommand(string action, string args = null)
             => Dte.ExecuteCommand(action, args);
 
@@ -96,5 +99,11 @@ namespace DeveloperNews.UI.Services
 
         public void CloneOrCheckoutCode()
             => ExecuteCommand(FILE_CLONE_OR_CHECKOUT_CODE);
+
+        public void ShowToolsOptions(string guid)
+            => ExecuteCommand("Tools.Options", guid);
+
+        public void ShowToolsOptions(Guid guid)
+            => ShowToolsOptions(guid.ToString());
     }
 }
