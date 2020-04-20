@@ -30,6 +30,11 @@ namespace DeveloperNews.Options.Pages
         public int ItemsToDisplay { get; set; } = 10;
 
         [Category(H2 + Features)]
+        [DisplayName(Enable + Space + Quote + Constants.PageConstants.ClearListBeforeRefresh + Quote)]
+        [Description("Allows the list to not be cleared before refreshing")]
+        public bool ClearListBeforeRefresh { get; set; } = true;
+
+        [Category(H2 + Features)]
         [DisplayName(Enable + Space + Quote + Constants.PageConstants.OpenLinksInVS + Quote)]
         [Description("Determines if links are opened in VS or in the user's default browser")]
         public bool OpenLinksInVS { get; set; } = true;
