@@ -24,7 +24,7 @@
         </Strings>
       </Button>
 
-      <Button guid="PackageCommandSet" id="DeveloperNewsOptions" type="Button" priority="0x00FF">
+      <Button guid="PackageCommandSet" id="ViewDeveloperNewsOptions" type="Button" priority="0x00FF">
         <Parent guid="guidSHLMainMenu" id="IDG_VS_TOOLS_OPTIONS" />
         <Icon guid="ImageCatalogGuid" id="ConditionalRuleIfThen" />
         <CommandFlag>IconIsMoniker</CommandFlag>
@@ -44,7 +44,7 @@
       <IDSymbol name="PackageGroup" value="0xB000" />
 
       <IDSymbol name="ViewDeveloperNews" value="0x0210" />
-      <IDSymbol name="DeveloperNewsOptions" value="0x0215" />
+      <IDSymbol name="ViewDeveloperNewsOptions" value="0x0215" />
     </GuidSymbol>
   </Symbols>
 </CommandTable>
