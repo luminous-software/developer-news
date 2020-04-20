@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="E35E8D0A-2D8C-4A18-BF10-CB446334A278" Version="1.2.1.7" Language="en-US" Publisher="Yann Duran" />
+        <Identity Id="E35E8D0A-2D8C-4A18-BF10-CB446334A278" Version="1.3" Language="en-US" Publisher="Yann Duran" />
         <DisplayName>Developer News</DisplayName>
         <Description xml:space="preserve">Bring Back Developer News!</Description>
         <MoreInfo>https://luminous-software.solutions/developer-news</MoreInfo>
