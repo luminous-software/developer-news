@@ -1,4 +1,6 @@
-﻿namespace DeveloperNews.UI.Interfaces
+﻿using System;
+
+namespace DeveloperNews.UI.Interfaces
 {
     public interface IVisualStudioService
     {
@@ -17,5 +19,7 @@
         void CreateNewProject();
 
         void CloneOrCheckoutCode();
+
+        void ShowToolsOptions(Guid guid);
     }
 }

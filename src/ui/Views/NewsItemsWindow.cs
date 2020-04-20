@@ -13,7 +13,7 @@ namespace DeveloperNews.UI.Views.DevNews
     {
         public NewsItemsWindow() : base(null)
         {
-            Caption = "Developer News";
+            Caption = Vsix.Name;
             BitmapImageMoniker = KnownMonikers.ConditionalRuleIfThen;
             Content = new NewsItemsView();
         }

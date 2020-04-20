@@ -1,17 +1,13 @@
-﻿using System.ComponentModel;
-using System.Runtime.InteropServices;
-using Microsoft.VisualStudio.Shell;
+﻿using Luminous.Code.VisualStudio.Options.Pages;
+
+using System.ComponentModel;
 
 namespace DeveloperNews.Options.Pages
 {
-    using static Constants.OptionsGuids;
     using static Constants.PageConstants;
     using static Core.Constants.StringConstants;
 
-    [ClassInterface(ClassInterfaceType.AutoDual)]
-    [ComVisible(true)]
-    [Guid(GeneralDialogPageString)]
-    public class GeneralDialogPage : DialogPage
+    public class GeneralOptions : BaseOptionModel<GeneralOptions>
     {
         [Category(H1 + PackageName)]
         [DisplayName(Enable + Space + Quote + PackageName + Quote)]
@@ -22,6 +18,21 @@ namespace DeveloperNews.Options.Pages
         [DisplayName(Constants.PageConstants.PackageVersion)]
         [Description("Installed '" + PackageName + "' version")]
         public string PackageVersion { get; } = Vsix.Version;
+
+        [Category(H2 + Features)]
+        [DisplayName(Constants.PageConstants.FeedUrl)]
+        [Description("The url that the news feeds gets its items from")]
+        public string FeedUrl { get; set; } = "https://vsstartpage.blob.core.windows.net/news/vs";
+
+        [Category(H2 + Features)]
+        [DisplayName(Constants.PageConstants.ItemsToDisplay)]
+        [Description("Determines the number of items displayed in the list")]
+        public int ItemsToDisplay { get; set; } = 10;
+
+        [Category(H2 + Features)]
+        [DisplayName(Enable + Space + Quote + Constants.PageConstants.ClearListBeforeRefresh + Quote)]
+        [Description("Allows the list to not be cleared before refreshing")]
+        public bool ClearListBeforeRefresh { get; set; } = true;
 
         [Category(H2 + Features)]
         [DisplayName(Enable + Space + Quote + Constants.PageConstants.OpenLinksInVS + Quote)]

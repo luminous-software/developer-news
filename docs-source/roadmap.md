@@ -5,9 +5,6 @@ These might be entirely **new features** or **enhancements** to existing feature
 
 They may, or may not, end up being added into _Developer News_.
 
-- [ ] Visual Studio Blog feed
-- [ ] Visual Studio Twitter feed
-- [ ] Azure DevOps Blog feed
 - [ ] Auto-refresh
 
 Ticked items are available in the lastest version of _Developer News_.

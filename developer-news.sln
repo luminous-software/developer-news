@@ -54,7 +54,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. changes", "2. changes", "{2C4A9B8A-C4DE-4854-A698-CB4D465BAF0A}"
 	ProjectSection(SolutionItems) = preProject
 		docs-source\changelog.md = docs-source\changelog.md
+		docs-source\assets\images\dev-news.png = docs-source\assets\images\dev-news.png
 		docs-source\features.md = docs-source\features.md
+		docs-source\assets\images\general-options.png = docs-source\assets\images\general-options.png
+		docs-source\assets\images\installer.png = docs-source\assets\images\installer.png
 		docs-source\roadmap.md = docs-source\roadmap.md
 	EndProjectSection
 EndProject

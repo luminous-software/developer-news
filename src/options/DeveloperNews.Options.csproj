@@ -46,9 +46,12 @@
       <Link>source.extension.cs</Link>
     </Compile>
     <Compile Include="Constants\PageConstants.cs" />
-    <Compile Include="Pages\GeneralDialogPage.cs">
+    <Compile Include="Pages\BaseOptionModel.cs" />
+    <Compile Include="Pages\BaseOptionPage.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Pages\DialogPageProvider.cs" />
+    <Compile Include="Pages\GeneralOptions.cs" />
     <Compile Include="Constants\OptionsGuids.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

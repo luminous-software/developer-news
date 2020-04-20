@@ -1,5 +1,7 @@
 ﻿namespace DeveloperNews.Commands
 {
+    using DeveloperNews.Options.Pages;
+
     using Luminous.Code.VisualStudio.Commands;
     using Luminous.Code.VisualStudio.Packages;
 
@@ -9,6 +11,6 @@
         { }
 
         protected override bool CanExecute
-           => base.CanExecute && PackageClass.GeneralOptions.EnableDeveloperNews;
+           => base.CanExecute && GeneralOptions.Instance.EnableDeveloperNews;
     }
 }

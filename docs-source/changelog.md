@@ -1,7 +1,14 @@
 ## Public Releases
 
+### v1.3 - 2020-04-19
+- added option to change the feed url
+- added option to change the number of items displayed
+- added option to supress clearing the list before refreshing
+- added an 'Options' command to open Tools | Options | General in one click
+
 ### v1.2 - 2020-04-10
-- use selected theme's colors/font sizes (as in Start Page+)
+- added selected theme support (same as in Start Page+)
+- removed 'View More News' command
 
 ### v1.1 - 2019-07-01
 - added option to open links in default browser

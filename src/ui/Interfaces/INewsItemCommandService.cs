@@ -6,7 +6,6 @@ namespace DeveloperNews.UI.Interfaces
 
     public interface INewsItemCommandService
     {
-        ObservableCommandList GetCommands(Action refresh);
-
+        ObservableCommandList GetCommands(Action refresh, Action showOptions);
     }
 }
