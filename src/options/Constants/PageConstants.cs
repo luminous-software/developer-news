@@ -20,7 +20,7 @@
         public const string FeedUrl = "Feed Url";
         public const string OpenLinksInVS = "Open Links in VS";
         public const string ItemsToDisplay = "Number of items to display";
-        public const string ClearListBeforeRefresh = "Clear list before refreshing it";
+        public const string ClearListBeforeRefresh = "Clear list before refresh";
         public const string EnableDeveloperNewsOptions = "Developer News Options";
     }
 }
