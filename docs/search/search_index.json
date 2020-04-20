@@ -67,18 +67,13 @@
         },
         {
             "location": "/features/",
-            "text": "To display the new \nDeveloper News\n window:\n\n\n\n\nclick \nView\n | \nDeveloper News\n\n\n\n\nDev News Feed\n\u00b6\n\n\nThe \nDev News\n feed is based on the feed from the Developer News control on the old VS 2017 startup page.\nIt's the first feed that has been added to the new \nDeveloper News\n window.\n\n\n\n\nOther Feeds\n\u00b6\n\n\nOther feeds will follow in the near future. Check out the \nRoadmap\n for more details.\n\n\nOptions\n\u00b6\n\n\n\n\nEnable 'Developer News'\n\u00b6\n\n\nThis setting allows the whole set of \nDeveloper News\n features to be turned off together.\n\n\nVersion Number\n\u00b6\n\n\nDisplays then version number of \nDeveloper News\n that's currently installed.\n\n\nEnable 'Open Links in VS'\n\u00b6\n\n\nThe default value is \ntrue\n, meaning that any item link that is clicked will be opened in a window\ninside of Visual Studio.\n\n\nA value of \nfalse\n will result in the link being opened in your default browser.",
+            "text": "To display the new \nDeveloper News\n window:\n\n\n\n\nclick \nView\n | \nDeveloper News\n\n\n\n\nDev News Feed\n\u00b6\n\n\nThe \nDev News\n feed is based on the feed from the \nDeveloper News\n control on the old VS 2017 startup page.\n\n\n\n\nOptions\n\u00b6\n\n\n\n\nEnable 'Developer News'\n\u00b6\n\n\nThis setting allows the whole set of \nDeveloper News\n features to be turned off together.\n\n\nVersion Number\n\u00b6\n\n\nDisplays then version number of \nDeveloper News\n that's currently installed.\n\n\nEnable 'Clear list before refresh'\n\u00b6\n\n\nThe default value is \ntrue\n, which means that the list will be cleared before a refresh is performed.\nThis gives a visual indication that the list is being refreshed.\n\n\nA value of \nfalse\n may mean that the list refreshes so fast that it's not obvious that it was in fact refreshed.\n\n\nEnable 'Developer News Options'\n\u00b6\n\n\nThe default value is \ntrue\n, which adds a 'Developer News Options' command to be added to the \nTools\n | \nOptions\n menu.\n\n\nEnable 'Open Links in VS'\n\u00b6\n\n\nThe default value is \ntrue\n, meaning that any item link that is clicked will be opened in a window\ninside of Visual Studio.\n\n\nA value of \nfalse\n will result in the link being opened in your default browser.\n\n\nFeed Url\n\u00b6\n\n\nThis setting allows the list to be populated from an RSS feed other than that of VS 2017's \nDeveloper News\n.\n\n\nThe default value is \nhttps://vsstartpage.blob.core.windows.net/news/vs\n.\n\n\nNumber of Items to display\n\u00b6\n\n\nThis allows you to limit the number of items displayed in the list.\n\n\nThe default value is \n10\n. This is how many items that Microsoft currently maintains in the default feed.\nOnly the newest three get displayed in the Installer's \nDeveloper News\n section even though it points to the same source.\n\n\nA value greater than \n10\n will still only display ten items. A value of \n0\n will currently display zero items,\nbut this may in the future be changed to indicate that all items in the feed should be displayed.",
             "title": "Features"
         },
         {
             "location": "/features/#dev-news-feed",
-            "text": "The  Dev News  feed is based on the feed from the Developer News control on the old VS 2017 startup page.\nIt's the first feed that has been added to the new  Developer News  window.",
+            "text": "The  Dev News  feed is based on the feed from the  Developer News  control on the old VS 2017 startup page.",
             "title": "Dev News Feed"
-        },
-        {
-            "location": "/features/#other-feeds",
-            "text": "Other feeds will follow in the near future. Check out the  Roadmap  for more details.",
-            "title": "Other Feeds"
         },
         {
             "location": "/features/#options",
@@ -96,13 +91,33 @@
             "title": "Version Number"
         },
         {
+            "location": "/features/#enable-clear-list-before-refresh",
+            "text": "The default value is  true , which means that the list will be cleared before a refresh is performed.\nThis gives a visual indication that the list is being refreshed.  A value of  false  may mean that the list refreshes so fast that it's not obvious that it was in fact refreshed.",
+            "title": "Enable 'Clear list before refresh'"
+        },
+        {
+            "location": "/features/#enable-developer-news-options",
+            "text": "The default value is  true , which adds a 'Developer News Options' command to be added to the  Tools  |  Options  menu.",
+            "title": "Enable 'Developer News Options'"
+        },
+        {
             "location": "/features/#enable-open-links-in-vs",
             "text": "The default value is  true , meaning that any item link that is clicked will be opened in a window\ninside of Visual Studio.  A value of  false  will result in the link being opened in your default browser.",
             "title": "Enable 'Open Links in VS'"
         },
         {
+            "location": "/features/#feed-url",
+            "text": "This setting allows the list to be populated from an RSS feed other than that of VS 2017's  Developer News .  The default value is  https://vsstartpage.blob.core.windows.net/news/vs .",
+            "title": "Feed Url"
+        },
+        {
+            "location": "/features/#number-of-items-to-display",
+            "text": "This allows you to limit the number of items displayed in the list.  The default value is  10 . This is how many items that Microsoft currently maintains in the default feed.\nOnly the newest three get displayed in the Installer's  Developer News  section even though it points to the same source.  A value greater than  10  will still only display ten items. A value of  0  will currently display zero items,\nbut this may in the future be changed to indicate that all items in the feed should be displayed.",
+            "title": "Number of Items to display"
+        },
+        {
             "location": "/changelog/",
-            "text": "Public Releases\n\u00b6\n\n\nv1.2 - 2020-04-10\n\u00b6\n\n\n\n\nuse selected theme's colors/font sizes (as in Start Page+)\n\n\n\n\nv1.1 - 2019-07-01\n\u00b6\n\n\n\n\nadded option to open links in default browser\n\n\n\n\nv1.02 - 2019-06-07\n\u00b6\n\n\n\n\nfixed conflict with Extensibility Logs\n\n\n\n\nv1.01 - 2019-05-26\n\u00b6\n\n\n\n\nadded website documentation\n\n\n\n\nv1.0 - 2019-05-25\n\u00b6\n\n\n\n\ninitial release\n\n\nadded Start Page's Developer News feed\n\n\nadded documentation to GitHub & Marketplace\n\n\n\n\nInternal Releases\n\u00b6\n\n\nv0.1 - v0.9\n\u00b6\n\n\n\n\nadded bare tool window (View | Developer News)\n\n\nadded feed interface & feed item model\n\n\nadded 'RSS feed' service\n\n\nadded 'Dev News' feed (Start Page feed)\n\n\nadded feed styles\n\n\nadded 'IBrowserService' & 'BrowserService'\n\n\nadded 'Visual Studio Browser Service' (internal/external browser)\n\n\nadded 'Refresh' command\n\n\nadded 'View More News' command",
+            "text": "Public Releases\n\u00b6\n\n\nv1.3 - 2020-04-19\n\u00b6\n\n\n\n\nadded option to change the feed url\n\n\nadded option to change the number of items displayed\n\n\nadded option to supress clearing the list before refreshing\n\n\nadded an 'Options' command to open Tools | Options | General in one click\n\n\n\n\nv1.2 - 2020-04-10\n\u00b6\n\n\n\n\nadded selected theme support (same as in Start Page+)\n\n\nremoved 'View More News' command\n\n\n\n\nv1.1 - 2019-07-01\n\u00b6\n\n\n\n\nadded option to open links in default browser\n\n\n\n\nv1.02 - 2019-06-07\n\u00b6\n\n\n\n\nfixed conflict with Extensibility Logs\n\n\n\n\nv1.01 - 2019-05-26\n\u00b6\n\n\n\n\nadded website documentation\n\n\n\n\nv1.0 - 2019-05-25\n\u00b6\n\n\n\n\ninitial release\n\n\nadded Start Page's Developer News feed\n\n\nadded documentation to GitHub & Marketplace\n\n\n\n\nInternal Releases\n\u00b6\n\n\nv0.1 - v0.9\n\u00b6\n\n\n\n\nadded bare tool window (View | Developer News)\n\n\nadded feed interface & feed item model\n\n\nadded 'RSS feed' service\n\n\nadded 'Dev News' feed (Start Page feed)\n\n\nadded feed styles\n\n\nadded 'IBrowserService' & 'BrowserService'\n\n\nadded 'Visual Studio Browser Service' (internal/external browser)\n\n\nadded 'Refresh' command\n\n\nadded 'View More News' command",
             "title": "Changelog"
         },
         {
@@ -111,8 +126,13 @@
             "title": "Public Releases"
         },
         {
+            "location": "/changelog/#v13-2020-04-19",
+            "text": "added option to change the feed url  added option to change the number of items displayed  added option to supress clearing the list before refreshing  added an 'Options' command to open Tools | Options | General in one click",
+            "title": "v1.3 - 2020-04-19"
+        },
+        {
             "location": "/changelog/#v12-2020-04-10",
-            "text": "use selected theme's colors/font sizes (as in Start Page+)",
+            "text": "added selected theme support (same as in Start Page+)  removed 'View More News' command",
             "title": "v1.2 - 2020-04-10"
         },
         {
@@ -147,12 +167,12 @@
         },
         {
             "location": "/roadmap/",
-            "text": "Feature Ideas\n\u00b6\n\n\nThe list below is a list of \npotential\n \nfeatures\n or \nenhancements\n.\nThese might be entirely \nnew features\n or \nenhancements\n to existing features.\n\n\nThey may, or may not, end up being added into \nDeveloper News\n.\n\n\n\n\n Visual Studio Blog feed\n\n\n Visual Studio Twitter feed\n\n\n Azure DevOps Blog feed\n\n\n Auto-refresh\n\n\n\n\nTicked items are available in the lastest version of \nDeveloper News\n.\n\n\nContributions\n\u00b6\n\n\nIf you'd like to implement one of the \nfeature ideas\n,\nfeel free to \nopen an \nIssue\n on GitHub\n (with the same name as the feature),\nand we can start a discussion there.\n\n\nWe can then work toward developing a pull request,\nso the your feature can be incorporated into \nDeveloper News\n.\n\n\nDon't forget to check out the \nContribution Guidelines\n.\n\n\nBug Fixes\n\u00b6\n\n\nOnce bug fixes have been fully tested, they'll be included in the \nnext public release\n.\n\n\n\n\nThere are no bug fixes that need testing at the moment",
+            "text": "Feature Ideas\n\u00b6\n\n\nThe list below is a list of \npotential\n \nfeatures\n or \nenhancements\n.\nThese might be entirely \nnew features\n or \nenhancements\n to existing features.\n\n\nThey may, or may not, end up being added into \nDeveloper News\n.\n\n\n\n\n Auto-refresh\n\n\n\n\nTicked items are available in the lastest version of \nDeveloper News\n.\n\n\nContributions\n\u00b6\n\n\nIf you'd like to implement one of the \nfeature ideas\n,\nfeel free to \nopen an \nIssue\n on GitHub\n (with the same name as the feature),\nand we can start a discussion there.\n\n\nWe can then work toward developing a pull request,\nso the your feature can be incorporated into \nDeveloper News\n.\n\n\nDon't forget to check out the \nContribution Guidelines\n.\n\n\nBug Fixes\n\u00b6\n\n\nOnce bug fixes have been fully tested, they'll be included in the \nnext public release\n.\n\n\n\n\nThere are no bug fixes that need testing at the moment",
             "title": "Roadmap"
         },
         {
             "location": "/roadmap/#feature-ideas",
-            "text": "The list below is a list of  potential   features  or  enhancements .\nThese might be entirely  new features  or  enhancements  to existing features.  They may, or may not, end up being added into  Developer News .    Visual Studio Blog feed   Visual Studio Twitter feed   Azure DevOps Blog feed   Auto-refresh   Ticked items are available in the lastest version of  Developer News .",
+            "text": "The list below is a list of  potential   features  or  enhancements .\nThese might be entirely  new features  or  enhancements  to existing features.  They may, or may not, end up being added into  Developer News .    Auto-refresh   Ticked items are available in the lastest version of  Developer News .",
             "title": "Feature Ideas"
         },
         {

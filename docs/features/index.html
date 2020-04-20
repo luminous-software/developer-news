@@ -223,13 +223,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#other-feeds" title="Other Feeds" class="md-nav__link">
-    Other Feeds
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#options" title="Options" class="md-nav__link">
     Options
   </a>
@@ -252,8 +245,36 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#enable-clear-list-before-refresh" title="Enable 'Clear list before refresh'" class="md-nav__link">
+    Enable 'Clear list before refresh'
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-developer-news-options" title="Enable 'Developer News Options'" class="md-nav__link">
+    Enable 'Developer News Options'
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#enable-open-links-in-vs" title="Enable 'Open Links in VS'" class="md-nav__link">
     Enable 'Open Links in VS'
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feed-url" title="Feed Url" class="md-nav__link">
+    Feed Url
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number-of-items-to-display" title="Number of Items to display" class="md-nav__link">
+    Number of Items to display
   </a>
   
 </li>
@@ -322,13 +343,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#other-feeds" title="Other Feeds" class="md-nav__link">
-    Other Feeds
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#options" title="Options" class="md-nav__link">
     Options
   </a>
@@ -351,8 +365,36 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#enable-clear-list-before-refresh" title="Enable 'Clear list before refresh'" class="md-nav__link">
+    Enable 'Clear list before refresh'
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-developer-news-options" title="Enable 'Developer News Options'" class="md-nav__link">
+    Enable 'Developer News Options'
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#enable-open-links-in-vs" title="Enable 'Open Links in VS'" class="md-nav__link">
     Enable 'Open Links in VS'
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feed-url" title="Feed Url" class="md-nav__link">
+    Feed Url
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number-of-items-to-display" title="Number of Items to display" class="md-nav__link">
+    Number of Items to display
   </a>
   
 </li>
@@ -384,21 +426,33 @@
 <li>click <strong>View</strong> | <strong>Developer News</strong></li>
 </ul>
 <h2 id="dev-news-feed">Dev News Feed<a class="headerlink" href="#dev-news-feed" title="Permanent link">&para;</a></h2>
-<p>The <em>Dev News</em> feed is based on the feed from the Developer News control on the old VS 2017 startup page.
-It's the first feed that has been added to the new <em>Developer News</em> window.</p>
+<p>The <em>Dev News</em> feed is based on the feed from the <em>Developer News</em> control on the old VS 2017 startup page.</p>
 <p><img alt="Dev News" src="../assets/images/dev-news.png" /></p>
-<h2 id="other-feeds">Other Feeds<a class="headerlink" href="#other-feeds" title="Permanent link">&para;</a></h2>
-<p>Other feeds will follow in the near future. Check out the <a href="https://luminous-software.solutions/developer-news/roadmap">Roadmap</a> for more details.</p>
 <h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
 <p><img alt="General Options" src="../assets/images/general-options.png" /></p>
 <h3 id="enable-developer-news">Enable 'Developer News'<a class="headerlink" href="#enable-developer-news" title="Permanent link">&para;</a></h3>
 <p>This setting allows the whole set of <em>Developer News</em> features to be turned off together.</p>
 <h3 id="version-number">Version Number<a class="headerlink" href="#version-number" title="Permanent link">&para;</a></h3>
 <p>Displays then version number of <em>Developer News</em> that's currently installed.</p>
+<h3 id="enable-clear-list-before-refresh">Enable 'Clear list before refresh'<a class="headerlink" href="#enable-clear-list-before-refresh" title="Permanent link">&para;</a></h3>
+<p>The default value is <code>true</code>, which means that the list will be cleared before a refresh is performed.
+This gives a visual indication that the list is being refreshed.</p>
+<p>A value of <code>false</code> may mean that the list refreshes so fast that it's not obvious that it was in fact refreshed.</p>
+<h3 id="enable-developer-news-options">Enable 'Developer News Options'<a class="headerlink" href="#enable-developer-news-options" title="Permanent link">&para;</a></h3>
+<p>The default value is <code>true</code>, which adds a 'Developer News Options' command to be added to the <code>Tools</code> | <code>Options</code> menu.</p>
 <h3 id="enable-open-links-in-vs">Enable 'Open Links in VS'<a class="headerlink" href="#enable-open-links-in-vs" title="Permanent link">&para;</a></h3>
 <p>The default value is <code>true</code>, meaning that any item link that is clicked will be opened in a window
 inside of Visual Studio.</p>
 <p>A value of <code>false</code> will result in the link being opened in your default browser.</p>
+<h3 id="feed-url">Feed Url<a class="headerlink" href="#feed-url" title="Permanent link">&para;</a></h3>
+<p>This setting allows the list to be populated from an RSS feed other than that of VS 2017's <em>Developer News</em>.</p>
+<p>The default value is <a href="https://vsstartpage.blob.core.windows.net/news/vs">https://vsstartpage.blob.core.windows.net/news/vs</a>.</p>
+<h3 id="number-of-items-to-display">Number of Items to display<a class="headerlink" href="#number-of-items-to-display" title="Permanent link">&para;</a></h3>
+<p>This allows you to limit the number of items displayed in the list.</p>
+<p>The default value is <code>10</code>. This is how many items that Microsoft currently maintains in the default feed.
+Only the newest three get displayed in the Installer's <em>Developer News</em> section even though it points to the same source.</p>
+<p>A value greater than <code>10</code> will still only display ten items. A value of <code>0</code> will currently display zero items,
+but this may in the future be changed to indicate that all items in the feed should be displayed.</p>
                 
                   
                 
