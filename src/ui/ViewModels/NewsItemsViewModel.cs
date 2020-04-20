@@ -57,9 +57,12 @@ namespace DeveloperNews.UI.ViewModels
              => ThreadHelper.JoinableTaskFactory.RunAsync(async ()
                  =>
                  {
-                     Items.Clear();
-
                      var options = await GeneralOptions.GetLiveInstanceAsync();
+
+                     if (options.ClearListBeforeRefresh)
+                     {
+                         Items.Clear();
+                     }
 
                      return Items = await DataService.GetItemsAsync(options.FeedUrl, options.ItemsToDisplay);
                  });
